@@ -10,8 +10,11 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 
 ### Students
 
-* First Last, x500@umn.edu
-* ...
+* Nicholas Soto, soto0056@umn.edu
+* Tyler Chan, chen7751@umn.edu
+* Connor Holm, holm0850@umn.edu
+* Hady Kotifani, kotif004@umn.edu
+* Jiatan Julia Huang, huan2460@umn.edu
 
 
 ## Key Features
@@ -33,9 +36,11 @@ Which (if any) progressive web app feature(s) does your app support?
 
 ## Mockup images
 
-**[Add images/photos that show your mockup](https://stackoverflow.com/questions/10189356/how-to-add-screenshot-to-readmes-in-github-repository) along with a very brief caption:**
+<!--**[Add images/photos that show your mockup](https://stackoverflow.com/questions/10189356/how-to-add-screenshot-to-readmes-in-github-repository) along with a very brief caption:**-->
 
-![](https://media.giphy.com/media/26ufnwz3wDUli7GU0/giphy.gif)
+**Moqups link**: [view](https://app.moqups.com/MolanEiXTv5dRkIHmLJw9Vv9nZvL2oid/view/page/ad64222d5)
+
+<!--![](https://media.giphy.com/media/26ufnwz3wDUli7GU0/giphy.gif)-->
 
 
 ## Testing Notes
