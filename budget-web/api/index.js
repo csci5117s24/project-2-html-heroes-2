@@ -16,6 +16,7 @@ Transactions collection:
 {
   _id: ...
   userId: ...
+  description: ...
   value: ...
   category: ...
   date: ...
@@ -247,6 +248,7 @@ app.http('addTransaction', {
         const body = await request.json();
         const newTransaction = {
             userid: userId,
+            description: description,
             value: body.value,
             category: body.category,
             date: body.date
@@ -261,7 +263,36 @@ app.http('addTransaction', {
     },
 });
 
-// Update transaction
+app.http('updateTransaction', {
+    methods: ['POST'],
+    authLevel: 'anonymous',
+    route: 'transaction',
+    handler: async (request, context) => {
+        const xmsHeader = JSON.parse(atob(request.headers.get('x-ms-client-principal')));
+        const userId = xmsHeader.userId;
+        if (!userId) {
+            return {
+                status: 500
+            }
+        }
+
+        const body = await request.json();
+        const newTransaction = {
+            userid: userId,
+            description: description,
+            value: body.value,
+            category: body.category,
+            date: body.date
+        }
+        const client = await mongoClient.connect(process.env.AZURE_MONGO_DB);
+        const result = await client.db('budgetapp').collection('transactions').insertOne(newTransaction);
+        client.close();
+        return {
+            status: 201,
+            jsonBody: {id: result.insertedId, newTransaction: newTransaction}
+        }
+    },
+});
 
 // Delete transaction
 
