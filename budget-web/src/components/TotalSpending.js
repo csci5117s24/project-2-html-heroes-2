@@ -35,10 +35,10 @@ function TotalSpending() {
 
     return (
            // https://flowbite.com/docs/components/card/
-        <a href="" class="my-3 block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <a href="" class="my-3 block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 white:bg-gray-800 white:border-gray-700 white:hover:bg-gray-700">
             <div className="grid grid-cols-1 md:grid-cols-2 place-items-center mt-4">
                 <div>
-                    <p class="font-normal text-2xl font-bold text-gray-900 dark:text-gray-400">Transactions Categories</p>
+                    <p class="font-normal text-2xl font-bold text-gray-900 dark:text-gray-700">Transactions Categories</p>
                     <div className="max-w-sm">
                         { chartData &&
                             <PieChart chartData={chartData} />
@@ -46,9 +46,9 @@ function TotalSpending() {
                     </div>
                 </div>
                 <div>
-                    <h5 class="float-left mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Total Spending today is</h5>
+                    <h5 class="float-left mb-2 text-4xl font-bold tracking-tight text-gray-900 white:text-white">Total Spending today is</h5>
                     <br />
-                    <h5 class="float-left mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">$345.65</h5>
+                    <h5 class="float-left mb-2 text-4xl font-bold tracking-tight text-gray-900 white:text-white">$345.65</h5>
                 </div>
 
             </div>
