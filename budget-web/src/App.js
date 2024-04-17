@@ -4,6 +4,7 @@ import Layout from "./pages/Layout";
 import Landing from "./pages/Landing";
 import Dashboard1 from "./pages/Dashboard_tyler";
 import AddTransactionForm from "./pages/AddTransactionForm";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
