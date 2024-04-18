@@ -46,29 +46,40 @@ export const CategoryList = () => {
           className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           onClick={createCategory}
         >
-          Add Category
+          Add
         </button>
       </div>
-      <ul className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        {categories.map((category) => (
-          <li key={category} className="mb-4">
-            <div className="flex justify-between items-center">
-              <Link
-                to={`/transactions/${category}`}
-                className="text-blue-500 hover:text-blue-800"
-              >
-                {category}
-              </Link>
-              <button
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                onClick={() => deleteCategory(category)}
-              >
-                Delete
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {categories.length > 0 && (
+        <ul className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          {categories.map((category) => (
+            <li key={category} className="mb-4">
+              <div className="flex justify-between items-center">
+                <span>{category}</span>
+                <button
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  onClick={() => deleteCategory(category)}
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="flex justify-between">
+        <Link
+          to="/add-transaction"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Add Transaction
+        </Link>
+        <Link
+          to="/transactions"
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Transaction List
+        </Link>
+      </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Dashboard1 from "./pages/Dashboard_tyler";
 import Dashboard from "./pages/Dashboard";
 import { AddTransaction } from "./pages/AddTransactionForm";
 import { TransactionList } from "./pages/TransactionList";
+import { CategoryList } from "./pages/CategoryList";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/transactions" element={<TransactionList />} />
           <Route path="/transactions/:category" element={<TransactionList />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/categories" element={<CategoryList />} />
         </Route>
       </Routes>
     </BrowserRouter>

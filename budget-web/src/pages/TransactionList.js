@@ -59,24 +59,28 @@ export const TransactionList = () => {
           </Link>
         ))}
       </div>
-      <ul className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        {transactions.map((transaction) => (
-          <li key={transaction._id} className="mb-4">
-            <div className="flex justify-between items-center">
-              <div>
-                <p className="text-gray-700 font-bold">
-                  {transaction.description}
-                </p>
-                <p className="text-gray-600">{transaction.category}</p>
-                <p className="text-gray-500">{transaction.date}</p>
+      {transactions.length > 0 ? (
+        <ul className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          {transactions.map((transaction) => (
+            <li key={transaction._id} className="mb-4">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-gray-700 font-bold">
+                    {transaction.description}
+                  </p>
+                  <p className="text-gray-600">{transaction.category}</p>
+                  <p className="text-gray-500">{transaction.date}</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold">${transaction.value}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-2xl font-bold">${transaction.value}</p>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-gray-700">No transactions found.</p>
+      )}
     </div>
   );
 };
