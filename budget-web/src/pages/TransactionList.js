@@ -4,18 +4,19 @@ import { Link, useParams } from "react-router-dom";
 export const TransactionList = () => {
   const [transactions, setTransactions] = useState([]);
   const [categories, setCategories] = useState([]);
-  const { category: categoryId } = useParams();
+  const { category: categoryName } = useParams();
 
   useEffect(() => {
     fetchTransactions();
     fetchCategories();
-  }, [categoryId]);
+  }, [categoryName]);
 
   const fetchTransactions = async () => {
     try {
-      const url = categoryId
-        ? `/api/transactions/${categoryId}`
+      const url = categoryName
+        ? `/api/transactions/${categoryName}`
         : "/api/transactions";
+      console.log(categoryName);
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Network response was not ok");

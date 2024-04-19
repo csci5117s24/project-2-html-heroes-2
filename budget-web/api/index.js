@@ -286,6 +286,7 @@ app.http("addTransaction", {
     const body = await request.json();
     const newTransaction = {
       userid: userId,
+      description: body.description,
       value: body.value,
       category: body.category,
       date: body.date,
@@ -326,7 +327,7 @@ app.http("getAllTransactions", {
     const transactions = await client
       .db("budgetapp")
       .collection("transactions")
-      .find({ userId: userId })
+      .find({ userid: userId })
       .toArray();
     client.close();
     return {
@@ -355,7 +356,7 @@ app.http("getAllCategoryTransactions", {
     const transactions = await client
       .db("budgetapp")
       .collection("transactions")
-      .find({ userId: userId, category: category })
+      .find({ userid: userId, category: category })
       .toArray();
     client.close();
     return {
