@@ -304,9 +304,70 @@ app.http("addTransaction", {
   },
 });
 
-// Update transaction
+app.http("updateTransaction", {
+  methods: ["POST"],
+  authLevel: "anonymous",
+  route: "transaction/{id}",
+  handler: async (request, context) => {
+    const xmsHeader = JSON.parse(
+      atob(request.headers.get("x-ms-client-principal"))
+    );
+    const userId = xmsHeader.userId;
+    if (!userId) {
+      return {
+        status: 500,
+      };
+    }
 
-// Delete transaction
+    const id = request.params.id;
+    const body = await request.json();
+    const newTransaction = {
+      userid: userId,
+      description: body.description,
+      value: body.value,
+      category: body.category,
+      date: body.date,
+    };
+    const client = await mongoClient.connect(process.env.AZURE_MONGO_DB);
+    const result = await client
+      .db("budgetapp")
+      .collection("transactions")
+      .updateOne({ _id: id }, { $set: newTransaction });
+    client.close();
+    return {
+      status: 201,
+      jsonBody: { updatedTransaction: newTransaction },
+    };
+  },
+});
+
+app.http("deleteTransaction", {
+  methods: ["POST"],
+  authLevel: "anonymous",
+  route: "transaction/{id}",
+  handler: async (request, context) => {
+    const xmsHeader = JSON.parse(
+      atob(request.headers.get("x-ms-client-principal"))
+    );
+    const userId = xmsHeader.userId;
+    if (!userId) {
+      return {
+        status: 500,
+      };
+    }
+
+    const id = request.params.id;
+    const client = await mongoClient.connect(process.env.AZURE_MONGO_DB);
+    const result = await client
+      .db("budgetapp")
+      .collection("transactions")
+      .remove({ _id: id });
+    client.close();
+    return {
+      status: 201
+    };
+  },
+});
 
 app.http("getAllTransactions", {
   methods: ["GET"],
