@@ -6,7 +6,7 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
-export default function BudgetSummary({ month, budegetLeft, dateLeftMonth, remaining, budget }) {
+export default function BudgetSummary({ month, budgetLeft, dateLeftMonth, spent, budget }) {
 
   // insert the chart into <div id="chartdiv2">
   useEffect(() => {
@@ -20,11 +20,11 @@ export default function BudgetSummary({ month, budegetLeft, dateLeftMonth, remai
     // Example data
     chart.data = [{
       "category": "Remaining",
-      "value": 17.2825,           //modify the value here to change the percentige
+      "value": (budgetLeft/budget * 100),           //modify the value here to change the percentige
       "full": 100                 //modify the value here to change the percentige
     }, {
-      "category": "Spend so far",
-      "value": 82.7175,
+      "category": "Spent so far",
+      "value": (spent/budget * 100),
       "full": 100
     }];
 
@@ -85,7 +85,7 @@ export default function BudgetSummary({ month, budegetLeft, dateLeftMonth, remai
     return () => {
       chart.dispose();
     };
-  }, []);
+  }, [month, budgetLeft, dateLeftMonth, spent, budget]);
 
   return (
     <>
@@ -94,12 +94,12 @@ export default function BudgetSummary({ month, budegetLeft, dateLeftMonth, remai
           <h1 class="mb-2 mr-20 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">{month} Budget</h1>
           <button type="button" class="ml-auto text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Edit Budget</button>
         </div>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">$ {budegetLeft} left for {dateLeftMonth} days</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">$ {budgetLeft} left for {dateLeftMonth} days</p>
         <div class="flex">
           <div id="chartdiv2" class="w-full mt-5 mb-5 mr-5" style={{ height: 280 + "px" }}></div>
           <div class="budgetSummaryText">
-            <p class="mt-5 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Spend so far ${remaining}</p>
-            <p class="mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Remaining ${budegetLeft}</p>
+            <p class="mt-5 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Spent so far ${spent}</p>
+            <p class="mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Remaining ${budgetLeft}</p>
             <p class="mb-11 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Budget ${budget}</p>
             <div>
               <p class="text-2xl p-3 border rounded-lg border-green-600 font-bold tracking-tight text-green-600">Looking great! You're on track with your budget!</p>

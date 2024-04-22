@@ -3,14 +3,15 @@ import React from "react"
 //The list should look like this
 // const transaction_list = [
 //     {
-//         "item_name":"Diet Coke",
-//         "category":"Food & Drink",
-//         "cost":3
+//         "_id" : ...,
+//         "userid" : ...",
+//         "description" : "Gasoline",
+//         "value" : "56.70",
+//         "category" : "Gas",
+//         "date" : "2024-04-03"
 //     },
 //     {
-//         "item_name":"Philly Cheese Steak pizza from Domino",
-//         "category":"Food & Drink",
-//         "cost":14
+//         ...
 //     }
 // ]
 
@@ -27,8 +28,8 @@ export default function RecentTransactoin({transaction_list}) {
                         <li class="mb-4">
                         <div class="flex justify-between mb-2">
                             <p class="w-1/3 text-xl font-medium text-gray-300 truncate ">{each.category}</p>
-                            <div class="w-1/3 font-medium text-gray-300 truncate" title={each.item_name}>{each.item_name}</div>
-                            <p class="w-1/3 text-right font-medium text-gray-300 truncate mr-4 ">-${each.cost}</p>
+                            <div class="w-1/3 font-medium text-gray-300 truncate" title={each.description}>{each.description}</div>
+                            <p class="w-1/3 text-right font-medium text-gray-300 truncate mr-4 ">-${each.value}</p>
                         </div>
                     </li>
                     )
