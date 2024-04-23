@@ -135,7 +135,7 @@ function Dashboard1() {
   const totals = totalCategoryExpensesSortedList(catExpenses, categories);
 
   console.log(amountSpentThisMonth);
-  console.log(budgetLeft);
+  console.log("This is "+budgetLeft);
   console.log(recentTransactions);
   console.log(catExpenses);
   console.log(totals);
@@ -163,9 +163,9 @@ function Dashboard1() {
               <div>
                 <BudgetSummary
                   month={currentMonthUSName}
-                  budgetLeft={budgetLeft.toFixed(2)}
-                  budget={budget.toFixed(2)}
-                  spent={amountSpentThisMonth.toFixed(2)}
+                  budgetLeft={Number(budgetLeft).toFixed(2)}
+                  budget={Number(budget).toFixed(2)}
+                  spent={Number(amountSpentThisMonth).toFixed(2)}
                   dateLeftMonth={dateLeftMonth}
                 />
                 <RecentTransactoin transaction_list={recentTransactions} />

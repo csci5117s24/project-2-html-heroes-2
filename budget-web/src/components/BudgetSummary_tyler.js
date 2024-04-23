@@ -99,14 +99,28 @@ export default function BudgetSummary({ month, budgetLeft, dateLeftMonth, spent,
       <div class="max-w-2xl p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative">
         <div class="flex">
           <h1 class="mb-2 mr-20 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">{month} Budget</h1>
-          <button type="button" class="ml-auto text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Edit Budget</button>
+          <button onClick={handleSetUpBudget} type="button" class="ml-auto text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Edit Budget</button>
         </div>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">$ {budgetLeft} left for {dateLeftMonth} days</p>
+        {(() => {
+          if (budgetLeft < 0) {
+            return <p class="mb-3 font-bold text-red-700 dark:text-red">$ {-budgetLeft} over budget</p>
+
+          } else {
+            return <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">$ {budgetLeft} left for {dateLeftMonth} days</p>
+
+          }
+        })()}
         <div class="flex">
           <div id="chartdiv2" class="w-full mt-5 mb-5 mr-5" style={{ height: 280 + "px" }}></div>
           <div class="budgetSummaryText">
             <p class="mt-5 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Spent so far ${spent}</p>
-            <p class="mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Remaining ${budgetLeft}</p>
+            {(() => {
+              if (budgetLeft < 0) {
+                return <p class="mb-5 text-2xl font-bold tracking-tight text-red-700 dark:text-red">Amount over budget ${-budgetLeft}</p>
+              } else {
+                return <p class="mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Remaining ${budgetLeft}</p>
+              }
+            })()}
             <p class="mb-11 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Budget ${budget}</p>
             <div>
               {(() => {
@@ -120,7 +134,7 @@ export default function BudgetSummary({ month, budgetLeft, dateLeftMonth, spent,
           </div>
         </div>
         {budget == 0 && (
-          <div class="absolute inset-0 bg-white bg-opacity-30 backdrop-blur-sm flex justify-center items-center z-10 rounded-lg shadow">
+          <div class="absolute inset-0 bg-white bg-opacity-5 backdrop-blur-sm flex justify-center items-center z-10 rounded-lg shadow">
             <button
               class="px-4 py-2 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:outline-none"
               onClick={handleSetUpBudget}
