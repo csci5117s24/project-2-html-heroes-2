@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import SummaryLi from './SummaryLi_tyler';
+import ColorHash from 'color-hash';
 
 // TODO: UPDATE SVG IMAGE TO NOT BE POPCORN
 
 export default function TodayTotal(props) {
+    // Color hash function that gives colors from blue to red
+    const colorHash = new ColorHash({hue: {min: 180, max: 359}});
+    const colors = props.categories.map(name => colorHash.hex(name));
     // Series data for the chart. Modify here to change the value of each category, which will lead to the change of total number
     const series = props.totals;
     const options = {
         // Change the color list below to modify the legend color.
         // As user inputs more category, we should have more color options back us up to render the category.
-        colors: ["#1C64F2", "#16BDCA", "#FDBA8C", "#E74694", "#6C2BD9"],
+        colors: colors,
         chart: {
             height: 320,
             type: "donut",
@@ -75,7 +79,7 @@ export default function TodayTotal(props) {
         console.log(categories);
         const html_data_list = categories.map((category, i) => 
             <li>
-                <SummaryLi svg_src="category-icon/entertainment-svgrepo-com.svg" category={category} cost={totals[i]} />
+                <SummaryLi category={category} color={colorHash.hex(category)} cost={totals[i]} />
             </li>
         );
         return html_data_list
