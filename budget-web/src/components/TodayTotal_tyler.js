@@ -27,6 +27,7 @@ export default function TodayTotal(props) {
                             show: true,
                             fontFamily: "Inter, sans-serif",
                             offsetY: 20,
+                            fontWeight: "bold",
                             color: "#F9FAFB"  // Setting the name label color
                         },
                         total: {
@@ -34,17 +35,19 @@ export default function TodayTotal(props) {
                             show: true,
                             label: "",
                             color: "#F9FAFB",
+                            fontWeight: "bold",
                             fontFamily: "Inter, sans-serif",
                             formatter: function (w) {
                                 const sum = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
-                                return '$' + sum + 'k';
+                                return '$' + sum;
                             }
                         },
                         value: {
                             show: true,
                             fontFamily: "Inter, sans-serif",
                             offsetY: -20,
-                            color: "#F9FAFB",  // Setting the value label color
+                            color: "#3195ea",  // Setting the value label color
+                            fontWeight: "bold",
                             formatter: function (value) {
                                 return value + "k";
                             }
@@ -61,8 +64,9 @@ export default function TodayTotal(props) {
         legend: {
             position: "bottom",
             fontFamily: "Inter, sans-serif",
+            fontWeight: "bold",
             labels: {
-                colors: '#000000',  // Setting legend text color
+                colors: '#b7b9bd',  // Setting legend text color
             }
         }
     };
@@ -79,7 +83,7 @@ export default function TodayTotal(props) {
 
     return (
         <>
-            <div class="ml-6 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="ml-6 p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <h1 class="mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Total Spending this Month</h1>
                 {/* <!-- Donut Chart --> */}
                 <ReactApexChart options={options} series={series} type="donut" height={320} />

@@ -159,7 +159,7 @@ function Dashboard1() {
         </header>
         <main>
           <div class="mx-auto max-w-9xl py-6 sm:px-6 lg:px-8">
-            <div class="flex">
+            <div class="flex justify-center ">
               <div>
                 <BudgetSummary
                   month={currentMonthUSName}

@@ -2,11 +2,18 @@
 
 import { Helmet } from "react-helmet";
 import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
 export default function BudgetSummary({ month, budgetLeft, dateLeftMonth, spent, budget }) {
+  //navigate function
+  const handleSetUpBudget = () => {
+    navigate("/setup-budget");
+  };
+  const navigate = useNavigate();
+  const budgetLeftPrec = budgetLeft / budget * 100
 
   // insert the chart into <div id="chartdiv2">
   useEffect(() => {
@@ -20,11 +27,11 @@ export default function BudgetSummary({ month, budgetLeft, dateLeftMonth, spent,
     // Example data
     chart.data = [{
       "category": "Remaining",
-      "value": (budgetLeft/budget * 100),           //modify the value here to change the percentige
+      "value": (budgetLeftPrec),           //modify the value here to change the percentige
       "full": 100                 //modify the value here to change the percentige
     }, {
       "category": "Spent so far",
-      "value": (spent/budget * 100),
+      "value": (spent / budget * 100),
       "full": 100
     }];
 
@@ -89,7 +96,7 @@ export default function BudgetSummary({ month, budgetLeft, dateLeftMonth, spent,
 
   return (
     <>
-      <div class="max-w-2xl p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="max-w-2xl p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative">
         <div class="flex">
           <h1 class="mb-2 mr-20 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">{month} Budget</h1>
           <button type="button" class="ml-auto text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Edit Budget</button>
@@ -102,11 +109,26 @@ export default function BudgetSummary({ month, budgetLeft, dateLeftMonth, spent,
             <p class="mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Remaining ${budgetLeft}</p>
             <p class="mb-11 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Budget ${budget}</p>
             <div>
-              <p class="text-2xl p-3 border rounded-lg border-green-600 font-bold tracking-tight text-green-600">Looking great! You're on track with your budget!</p>
+              {(() => {
+                if (budgetLeftPrec < 20) {
+                  return <p class="text-2xl p-3 border rounded-lg border-yellow-600 font-bold tracking-tight text-yellow-600">Opps! Your budget is a little tight.</p>
+                } else {
+                  return <p class="text-2xl p-3 border rounded-lg border-green-600 font-bold tracking-tight text-green-600">Looking good! You're on track with your budget.</p>;
+                }
+              })()}
             </div>
           </div>
         </div>
-
+        {budget == 0 && (
+          <div class="absolute inset-0 bg-white bg-opacity-30 backdrop-blur-sm flex justify-center items-center z-10 rounded-lg shadow">
+            <button
+              class="px-4 py-2 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:outline-none"
+              onClick={handleSetUpBudget}
+            >
+              Set Up Your Budget Plan
+            </button>
+          </div>
+        )}
       </div>
     </>
   )
