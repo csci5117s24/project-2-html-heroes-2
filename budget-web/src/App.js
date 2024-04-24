@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import { AddTransaction } from "./pages/AddTransactionForm";
 import { TransactionList } from "./pages/TransactionList";
 import { CategoryList } from "./pages/CategoryList";
+import SetUpBudget from "./pages/SetUpBudget";
 import AddReceipt from "./pages/AddReceipt";
 import CaptureReceipt from "./pages/CaptureReceipt";
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/transactions/:category" element={<TransactionList />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categories" element={<CategoryList />} />
+          <Route path="/setup-budget" element={<SetUpBudget />} />
           <Route path="/add-receipt" element={<AddReceipt />} />
           <Route path="/capture-receipt" element={<CaptureReceipt />} />
         </Route>
