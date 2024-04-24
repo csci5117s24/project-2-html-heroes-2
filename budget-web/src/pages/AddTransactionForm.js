@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 export const AddTransaction = () => {
+  const location = useLocation();
   const [newTransaction, setNewTransaction] = useState({
-    description: "",
-    value: "",
+    description: location.state?.description || "",
+    value: location.state?.value || "",
     category: "",
     date: "",
   });
