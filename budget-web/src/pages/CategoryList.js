@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import classes from '../static/CategoryList.module.css';
+import ColorHash from 'color-hash';
 
 export const CategoryList = () => {
   const [categories, setCategories] = useState([]);
@@ -31,6 +33,8 @@ export const CategoryList = () => {
     fetchCategories();
   };
 
+  const colorHash = new ColorHash({hue: {min: 180, max: 359}});
+
   return (
     <div className="container mx-auto mt-8">
       <h1 className="text-3xl font-bold mb-4">Categories</h1>
@@ -54,7 +58,10 @@ export const CategoryList = () => {
           {categories.map((category) => (
             <li key={category} className="mb-4">
               <div className="flex justify-between items-center">
-                <span>{category}</span>
+                <span>
+                  <span className={classes.dot} style={{backgroundColor: colorHash.hex(category)}}></span>
+                  <span>{category}</span>
+                </span>
                 <button
                   className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   onClick={() => deleteCategory(category)}

@@ -1,4 +1,6 @@
-import React from "react"
+import React from "react";
+import ColorHash from 'color-hash';
+import classes from '../static/RecentTransaction.module.css';
 
 //The list should look like this
 // const transaction_list = [
@@ -16,17 +18,19 @@ import React from "react"
 // ]
 
 export default function RecentTransactoin({transaction_list}) {
+    const colorHash = new ColorHash({hue: {min: 180, max: 359}});
     return (
         <>
             <div className=" mt-6 max-w-2xl p-6 bg-white border border-gray-400 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex">
-                <h1 class="mb-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Your Recent Transaction</h1>
+                <h1 class="mb-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Recent Transactions</h1>
                 <button type="button" class="ml-auto mb-3 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See more transactions</button>
                 </div>
                 <ul class="h-40 overflow-y-auto mb-2 text-xl tracking-tight text-gray-400">
                     {transaction_list.map(each =>(
                         <li class="mb-4">
                         <div class="flex justify-between mb-2">
+                            <span className={classes.dot} style={{backgroundColor: colorHash.hex(each.category)}}></span>
                             <p class="w-1/3 text-xl font-medium text-gray-500 truncate dark:text-white ">{each.category}</p>
                             <div class="w-1/3 font-medium text-gray-500 truncate dark:text-white" title={each.description}>{each.description}</div>
                             <p class="w-1/3 text-right font-medium text-gray-500 truncate mr-4 dark:text-white">-${each.value}</p>
