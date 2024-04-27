@@ -22,7 +22,10 @@ function App() {
           <Route path="/dashboard1" element={<Dashboard1 />} />
           <Route path="/add-transaction" element={<AddTransaction />} />
           <Route path="/transactions" element={<TransactionList />} />
-          <Route path="/transactions/:id" element={<TransactionDetail />} />
+          <Route
+            path="/transaction-detail/:id"
+            element={<TransactionDetail />}
+          />
           <Route path="/transactions/:category" element={<TransactionList />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categories" element={<CategoryList />} />

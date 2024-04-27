@@ -23,7 +23,7 @@ export const TransactionList = () => {
   }, [categoryName]);
 
   const handleTransactionClick = (transactionId) => {
-    navigate(`/transactions/${transactionId}`);
+    navigate(`/transaction-detail/${transactionId}`);
   };
 
   const fetchTransactions = async () => {
