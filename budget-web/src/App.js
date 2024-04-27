@@ -10,6 +10,7 @@ import { CategoryList } from "./pages/CategoryList";
 import SetUpBudget from "./pages/SetUpBudget";
 import AddReceipt from "./pages/AddReceipt";
 import CaptureReceipt from "./pages/CaptureReceipt";
+import AdvancedSummary from "./pages/AdvancedSummary";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Landing />} />
-          <Route path="/dashboard_tyler" element={<Dashboard1 />} />
+          <Route path="/dashboard1" element={<Dashboard1 />} />
           <Route path="/add-transaction" element={<AddTransaction />} />
           <Route path="/transactions" element={<TransactionList />} />
           <Route path="/transactions/:category" element={<TransactionList />} />
@@ -26,6 +27,7 @@ function App() {
           <Route path="/setup-budget" element={<SetUpBudget />} />
           <Route path="/add-receipt" element={<AddReceipt />} />
           <Route path="/capture-receipt" element={<CaptureReceipt />} />
+          <Route path="/adv-summary" element={<AdvancedSummary />} />
         </Route>
       </Routes>
     </BrowserRouter>

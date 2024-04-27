@@ -70,14 +70,14 @@ export default function BudgetSummary({ month, budgetLeft, dateLeftMonth, spent,
     series1.columns.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
     series1.columns.template.fillOpacity = 0.08;
     series1.columns.template.cornerRadiusTopLeft = 20;
-    series1.columns.template.strokeWidth = 0;
+    series1.columns.template.strokeWidth = 0.4;
     series1.columns.template.radarColumn.cornerRadius = 20;
 
     var series2 = chart.series.push(new am4charts.RadarColumnSeries());
     series2.dataFields.valueX = "value";
     series2.dataFields.categoryY = "category";
     series2.clustered = false;
-    series2.columns.template.strokeWidth = 0;
+    series2.columns.template.strokeWidth = 0.4;
     series2.columns.template.tooltipText = "{category}: [bold]{value}[/]";
     series2.columns.template.radarColumn.cornerRadius = 20;
 

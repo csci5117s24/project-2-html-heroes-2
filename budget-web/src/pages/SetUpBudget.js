@@ -16,12 +16,12 @@ export default function SetUpBudget() {
               });
               setMonthlyIncome(0);
               setSavingsTarget(0);
-            navigate("/dashboard_tyler");
+            navigate("/dashboard1");
         }
     };
 
     const handleDiscard = () => {
-        navigate("/dashboard_tyler");
+        navigate("/dashboard1");
     };
 
     const navigate = useNavigate();

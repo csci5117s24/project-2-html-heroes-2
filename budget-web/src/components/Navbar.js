@@ -70,8 +70,8 @@ function Navbar() {
                             </div>
                             <div class="hidden md:block">
                                 <ul class="flex items-center space-x-8">
-                                    <li><a href="/" class="text-white">Dashboard</a></li>
-                                    <li><a href="/" class="text-white">Advanced Spending Summary</a></li>
+                                    <li><a href="/dashboard1" class="text-white">Dashboard</a></li>
+                                    <li><a href="/adv-summary" class="text-white">Advanced Spending Summary</a></li>
                                     <li><a href="/.auth/logout" class="text-white">Log out</a></li>
                                 </ul>
                             </div>
