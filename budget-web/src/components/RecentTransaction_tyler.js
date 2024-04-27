@@ -1,6 +1,7 @@
 import React from "react";
 import ColorHash from 'color-hash';
 import classes from '../static/RecentTransaction.module.css';
+import { useNavigate } from "react-router-dom";
 
 //The list should look like this
 // const transaction_list = [
@@ -19,12 +20,18 @@ import classes from '../static/RecentTransaction.module.css';
 
 export default function RecentTransactoin({transaction_list}) {
     const colorHash = new ColorHash({hue: {min: 180, max: 359}});
+    //navigate function
+    const handleSeeTransactions = () => {
+        navigate("/transactions");
+    };
+    const navigate = useNavigate();
+
     return (
         <>
             <div className=" mt-6 max-w-2xl p-6 bg-white border border-gray-400 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex">
                 <h1 class="mb-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Recent Transactions</h1>
-                <button type="button" class="ml-auto mb-3 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See more transactions</button>
+                <button onClick={handleSeeTransactions} type="button" class="ml-auto mb-3 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See more transactions</button>
                 </div>
                 <ul class="h-40 overflow-y-auto mb-2 text-xl tracking-tight text-gray-400">
                     {transaction_list.map(each =>(
