@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import classes from '../static/CategoryList.module.css';
-import ColorHash from 'color-hash';
+import classes from "../static/CategoryList.module.css";
+import ColorHash from "color-hash";
 
 export const CategoryList = () => {
   const [categories, setCategories] = useState([]);
@@ -33,37 +33,42 @@ export const CategoryList = () => {
     fetchCategories();
   };
 
-  const colorHash = new ColorHash({hue: {min: 180, max: 359}});
+  const colorHash = new ColorHash({ hue: { min: 180, max: 359 } });
 
   return (
-    <div className="container mx-auto mt-8">
-      <h1 className="text-3xl font-bold mb-4">Categories</h1>
+    <div className="max-w-6xl p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto mt-8">
+      <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+        Categories
+      </h1>
       <div className="flex mb-4">
         <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
           type="text"
           value={newCategory}
           onChange={(e) => setNewCategory(e.target.value)}
           placeholder="Enter a new category"
         />
         <button
-          className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="ml-2 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           onClick={createCategory}
         >
           Add
         </button>
       </div>
       {categories.length > 0 && (
-        <ul className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <ul className="bg-white shadow-md rounded-lg mb-4 divide-y divide-gray-200">
           {categories.map((category) => (
-            <li key={category} className="mb-4">
+            <li key={category} className="px-6 py-4">
               <div className="flex justify-between items-center">
                 <span>
-                  <span className={classes.dot} style={{backgroundColor: colorHash.hex(category)}}></span>
+                  <span
+                    className={classes.dot}
+                    style={{ backgroundColor: colorHash.hex(category) }}
+                  ></span>
                   <span>{category}</span>
                 </span>
                 <button
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="text-white bg-gradient-to-r from-red-500 to-red-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                   onClick={() => deleteCategory(category)}
                 >
                   Delete
@@ -76,13 +81,13 @@ export const CategoryList = () => {
       <div className="flex justify-between">
         <Link
           to="/add-transaction"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         >
           Add Transaction
         </Link>
         <Link
           to="/transactions"
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="text-white bg-gradient-to-r from-green-500 to-green-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         >
           Transaction List
         </Link>

@@ -87,19 +87,21 @@ export const TransactionDetail = () => {
   }
 
   return (
-    <div className="container mx-auto mt-8">
-      <h1 className="text-3xl font-bold mb-4">Transaction Detail</h1>
+    <div className="max-w-6xl p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto mt-8">
+      <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+        Transaction Detail
+      </h1>
       <div className="mb-4">
         <label
           htmlFor="description"
-          className="block text-gray-700 font-bold mb-2"
+          className="block mb-2 text-sm font-bold text-gray-900 dark:text-white"
         >
           Description
         </label>
         <input
           type="text"
           id="description"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
           value={transaction.description}
           onChange={(e) =>
             setTransaction({ ...transaction, description: e.target.value })
@@ -107,14 +109,17 @@ export const TransactionDetail = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="value" className="block text-gray-700 font-bold mb-2">
+        <label
+          htmlFor="value"
+          className="block mb-2 text-sm font-bold text-gray-900 dark:text-white"
+        >
           Value
         </label>
         <input
           type="number"
           id="value"
           step="0.01"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
           value={transaction.value}
           onChange={(e) =>
             setTransaction({ ...transaction, value: e.target.value })
@@ -124,13 +129,13 @@ export const TransactionDetail = () => {
       <div className="mb-4">
         <label
           htmlFor="category"
-          className="block text-gray-700 font-bold mb-2"
+          className="block mb-2 text-sm font-bold text-gray-900 dark:text-white"
         >
           Category
         </label>
         <select
           id="category"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
           value={transaction.category}
           onChange={(e) =>
             setTransaction({ ...transaction, category: e.target.value })
@@ -143,38 +148,43 @@ export const TransactionDetail = () => {
           ))}
         </select>
       </div>
-      <div className="mb-4">
-        <label htmlFor="date" className="block text-gray-700 font-bold mb-2">
+      <div className="mb-6">
+        <label
+          htmlFor="date"
+          className="block mb-2 text-sm font-bold text-gray-900 dark:text-white"
+        >
           Date
         </label>
         <input
           type="date"
           id="date"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
           value={transaction.date}
           onChange={(e) =>
             setTransaction({ ...transaction, date: e.target.value })
           }
         />
       </div>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        onClick={updateTransaction}
-      >
-        Save
-      </button>
-      <button
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4"
-        onClick={deleteTransaction}
-      >
-        Delete
-      </button>
-      <button
-        className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4"
-        onClick={() => navigate("/transactions")}
-      >
-        Back
-      </button>
+      <div className="flex justify-between">
+        <button
+          className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          onClick={updateTransaction}
+        >
+          Save
+        </button>
+        <button
+          className="text-white bg-gradient-to-r from-red-500 to-red-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          onClick={deleteTransaction}
+        >
+          Delete
+        </button>
+        <button
+          className="text-white bg-gradient-to-r from-gray-500 to-gray-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          onClick={() => navigate("/transactions")}
+        >
+          Back
+        </button>
+      </div>
     </div>
   );
 };

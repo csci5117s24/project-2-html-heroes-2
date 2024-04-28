@@ -56,35 +56,38 @@ export const TransactionList = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8">
+    <div className="max-w-6xl p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto mt-8">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-3xl font-bold mb-4">Transaction List</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+          Transaction List
+        </h1>
         <Link
           to="/add-transaction"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         >
           Add Transaction
         </Link>
         <Link
           to="/categories"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         >
           Manage Categories
         </Link>
       </div>
-      
       <div className="mb-4">
         <Link
           to="/transactions"
-          className="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded mr-2"
+          className="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-l"
         >
           All
         </Link>
-        {categories.map((category) => (
+        {categories.map((category, index) => (
           <Link
             key={category}
             to={`/transactions/${category}`}
-            className="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded mr-2"
+            className={`inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 ${
+              index === categories.length - 1 ? "rounded-r" : ""
+            }`}
           >
             {category}
           </Link>
@@ -92,33 +95,36 @@ export const TransactionList = () => {
       </div>
       {transactions.length > 0 ? (
         <div>
-          <ul className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <ul className="bg-white shadow-md rounded-lg mb-4 divide-y divide-gray-200">
             {transactions.map((transaction) => (
               <li
                 key={transaction._id}
-                className="mb-4 cursor-pointer"
+                className="px-6 py-4 cursor-pointer hover:bg-gray-100"
                 onClick={() => handleTransactionClick(transaction._id)}
               >
                 <div className="flex justify-between items-center">
                   <div>
-                    <p className="text-gray-700 font-bold">
+                    <p className="text-gray-900 font-bold">
                       {transaction.description}
                     </p>
                     <p className="text-gray-600">{transaction.category}</p>
                     <p className="text-gray-500">{transaction.date}</p>
                   </div>
                   <div>
-                    <p className="text-2xl font-bold">${transaction.value}</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      ${transaction.value}
+                    </p>
                   </div>
                 </div>
               </li>
             ))}
           </ul>
-
-          <ul className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div className="bg-white shadow-md rounded-lg px-6 py-4">
             <div className="flex justify-between items-center">
               <div>
-                <p className="text-2xl font-bold">Total Expenses:</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  Total Expenses:
+                </p>
                 {categoryName === undefined ? (
                   <p className="text-gray-600">All</p>
                 ) : (
@@ -126,12 +132,12 @@ export const TransactionList = () => {
                 )}
               </div>
               <div>
-                <p className="text-2xl font-bold">
+                <p className="text-2xl font-bold text-gray-900">
                   ${transactionTotal(transactions)}
                 </p>
               </div>
             </div>
-          </ul>
+          </div>
         </div>
       ) : (
         <p className="text-gray-700">No transactions found.</p>
