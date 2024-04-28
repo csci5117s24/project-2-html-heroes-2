@@ -57,7 +57,22 @@ export const TransactionList = () => {
 
   return (
     <div className="container mx-auto mt-8">
-      <h1 className="text-3xl font-bold mb-4">Transaction List</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-3xl font-bold mb-4">Transaction List</h1>
+        <Link
+          to="/add-transaction"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Add Transaction
+        </Link>
+        <Link
+          to="/categories"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Manage Categories
+        </Link>
+      </div>
+      
       <div className="mb-4">
         <Link
           to="/transactions"
