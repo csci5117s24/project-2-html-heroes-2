@@ -49,12 +49,27 @@ export const AddTransaction = () => {
     <div className="container mx-auto mt-8">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold">Add Transaction</h1>
+        
+        <Link
+          to="/transactions"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Transaction List
+        </Link>
+        <Link
+          to="/add-receipt"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Capture Receipt
+        </Link>
+
         <Link
           to="/categories"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Manage Categories
         </Link>
+       
       </div>
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
