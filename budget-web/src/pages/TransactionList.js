@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 /* calculate total costs from a list of transactions i.e  [{...,"value" : "56.70", ... }, ...] 
    returns a double with the summation of all transaction values within the list with two decimal places*/
@@ -11,20 +11,20 @@ function transactionTotal(transactionList) {
   return sum.toFixed(2);
 }
 
-
-
-
-
-
 export const TransactionList = () => {
   const [transactions, setTransactions] = useState([]);
   const [categories, setCategories] = useState([]);
   const { category: categoryName } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchTransactions();
     fetchCategories();
   }, [categoryName]);
+
+  const handleTransactionClick = (transactionId) => {
+    navigate(`/transaction-detail/${transactionId}`);
+  };
 
   const fetchTransactions = async () => {
     try {
@@ -79,7 +79,11 @@ export const TransactionList = () => {
         <div>
           <ul className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             {transactions.map((transaction) => (
-              <li key={transaction._id} className="mb-4">
+              <li
+                key={transaction._id}
+                className="mb-4 cursor-pointer"
+                onClick={() => handleTransactionClick(transaction._id)}
+              >
                 <div className="flex justify-between items-center">
                   <div>
                     <p className="text-gray-700 font-bold">
@@ -99,21 +103,20 @@ export const TransactionList = () => {
           <ul className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="flex justify-between items-center">
               <div>
-                <p className="text-2xl font-bold">
-                  Total Expenses:
-                </p>
+                <p className="text-2xl font-bold">Total Expenses:</p>
                 {categoryName === undefined ? (
                   <p className="text-gray-600">All</p>
-                 ) : ( 
+                ) : (
                   <p className="text-gray-600">{categoryName}</p>
-                 )}
+                )}
               </div>
               <div>
-                <p className="text-2xl font-bold">${transactionTotal(transactions)}</p>
+                <p className="text-2xl font-bold">
+                  ${transactionTotal(transactions)}
+                </p>
               </div>
             </div>
           </ul>
-
         </div>
       ) : (
         <p className="text-gray-700">No transactions found.</p>

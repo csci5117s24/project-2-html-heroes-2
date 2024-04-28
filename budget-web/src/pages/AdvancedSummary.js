@@ -460,7 +460,7 @@ export default function AdvancedSummary() {
                         </div>
 
 
-                        <div class="flex mt-4 justify-center w-full bg-white border border-gray-500 rounded-lg shadow border-gray-400 ">
+                        <div class="flex mt-4 justify-center w-full bg-white border-gray-500 rounded-lg border-gray-400 ">
                             <div class="justify-center bg-white mt-0 mr-4 border-gray-500 rounded-lg  border-gray-400 ">
                                 <p class="mb-2 text-4xl tracking-tight text-gray-900">{selectedValue2}</p>
                                 <p class="mb-2 text-7xl font-bold tracking-tight text-gray-900">${selectedValue}</p>
