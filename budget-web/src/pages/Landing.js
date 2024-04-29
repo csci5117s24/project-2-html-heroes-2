@@ -65,7 +65,7 @@ function Landing() {
           </div>
         );
       } else {
-        return <Navigate to="/dashboard_tyler" replace />;
+        return <Navigate to="/dashboard1" replace />;
       }
 };
 
