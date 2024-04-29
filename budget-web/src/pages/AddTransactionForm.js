@@ -7,7 +7,7 @@ export const AddTransaction = () => {
     description: location.state?.description || "",
     value: location.state?.value || "",
     category: "",
-    date: "",
+    date: (new Date()).toISOString().substring(0,10),
   });
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
