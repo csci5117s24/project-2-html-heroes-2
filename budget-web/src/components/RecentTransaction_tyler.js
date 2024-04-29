@@ -40,7 +40,7 @@ export default function RecentTransactoin({transaction_list}) {
                             <span className={classes.dot} style={{backgroundColor: colorHash.hex(each.category)}}></span>
                             <p class="w-1/3 text-xl font-medium text-gray-500 truncate dark:text-white ">{each.category}</p>
                             <div class="w-1/3 font-medium text-gray-500 truncate dark:text-white" title={each.description}>{each.description}</div>
-                            <p class="w-1/3 text-right font-medium text-gray-500 truncate mr-4 dark:text-white">-${each.value}</p>
+                            <p class="w-1/3 text-right font-medium text-gray-500 truncate mr-4 dark:text-white">-${parseFloat(each.value).toFixed(2)}</p>
                         </div>
                     </li>
                     )

@@ -7,7 +7,7 @@ export const AddTransaction = () => {
     description: location.state?.description || "",
     value: location.state?.value || "",
     category: "",
-    date: "",
+    date: (new Date()).toISOString().substring(0,10),
   });
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
@@ -42,6 +42,16 @@ export const AddTransaction = () => {
     setNewTransaction((prevState) => ({
       ...prevState,
       [name]: value,
+    }));
+  };
+
+  const handleValueChange = (e) => {
+    const { name, value } = e.target;
+    let tempValue = value;
+    tempValue = Math.round(value * 100) / 100;
+    setNewTransaction((prevState) => ({
+      ...prevState,
+      [name]: tempValue,
     }));
   };
 
@@ -94,7 +104,7 @@ export const AddTransaction = () => {
           type="number"
           name="value"
           value={newTransaction.value}
-          onChange={handleInputChange}
+          onChange={handleValueChange}
           placeholder="Enter value"
         />
       </div>

@@ -12,7 +12,8 @@ export default function SetUpBudget() {
         */
     function handleSetMonthlyIncome2(e) {
         let inputVal = parseFloat(e.target.value)
-        let min = parseInt(savingsTarget)
+        inputVal = Math.round(inputVal * 100) / 100;
+        let min = parseFloat(savingsTarget)
         let max = 999999999999
         if (inputVal < 0 || undefined){ // set monthlyIncome to 0 if negative or undefined
             inputVal = 0;
@@ -32,6 +33,7 @@ export default function SetUpBudget() {
         */
     function handleSetSavingsTarget2(e) {
         let inputVal = parseFloat(e.target.value)
+        inputVal = Math.round(inputVal * 100) / 100;
         let max = parseFloat(monthlyIncome)
         if (inputVal > max) {
             inputVal = max
@@ -62,12 +64,12 @@ export default function SetUpBudget() {
 
     const navigate = useNavigate();
 
-    let monthlyBudget = monthlyIncome && savingsTarget
-        ? monthlyIncome - savingsTarget
+    let monthlyBudget = monthlyIncome
+        ? monthlyIncome - (savingsTarget ?? 0)
         : 0;
     
-    const rate = monthlyIncome && savingsTarget
-    ? savingsTarget / monthlyIncome * 100
+    const rate = monthlyIncome
+    ? (savingsTarget ?? 0) / monthlyIncome * 100
     : 0;
 
     // ensure Saving Numbers look correct (not NaN and two decimal places)
@@ -77,7 +79,7 @@ export default function SetUpBudget() {
     } else {
         savings = savingsTarget;
     }
-    savings = parseInt(savings).toFixed(2)
+    savings = parseFloat(savings).toFixed(2)
 
     return (
         <>
@@ -141,7 +143,7 @@ export default function SetUpBudget() {
                                     <p class="mb-2 flex text-center justify-center text-xl tracking-tight text-gray-900 dark:text-white">Monthly budget</p>
                                     <p
                                         class="dark:bg-gray-800 w-64 mx-auto text-center text-3xl font-bold flex justify-center dark:text-white appearance-none text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
-                                    >${monthlyBudget}</p>
+                                    >${monthlyBudget.toFixed(2)}</p>
                                 </div>
                             </div>
                             <div class="flex justify-center">

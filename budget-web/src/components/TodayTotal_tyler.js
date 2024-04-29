@@ -43,7 +43,7 @@ export default function TodayTotal(props) {
                             fontFamily: "Inter, sans-serif",
                             formatter: function (w) {
                                 const sum = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
-                                return '$' + sum;
+                                return '$' + sum.toFixed(2);
                             }
                         },
                         value: {
@@ -79,7 +79,7 @@ export default function TodayTotal(props) {
         console.log(categories);
         const html_data_list = categories.map((category, i) => 
             <li>
-                <SummaryLi category={category} color={colorHash.hex(category)} cost={totals[i]} />
+                <SummaryLi category={category} color={colorHash.hex(category)} cost={totals[i].toFixed(2)} />
             </li>
         );
         return html_data_list
