@@ -6,7 +6,7 @@ export const AddTransaction = () => {
   const [newTransaction, setNewTransaction] = useState({
     description: location.state?.description || "",
     value: location.state?.value || "",
-    category: "",
+    category: "Other",
     date: (new Date()).toISOString().substring(0,10),
   });
   const [categories, setCategories] = useState([]);

@@ -69,7 +69,7 @@ app.http("addUser", {
     const newUser = {
       _id: userId,
       budget: 0,
-      categories: [],
+      categories: ["Other"],
     };
     const client = await mongoClient.connect(process.env.AZURE_MONGO_DB);
     const res = await client
