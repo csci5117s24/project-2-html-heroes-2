@@ -45,6 +45,16 @@ export const AddTransaction = () => {
     }));
   };
 
+  const handleValueChange = (e) => {
+    const { name, value } = e.target;
+    let tempValue = value;
+    tempValue = Math.round(value * 100) / 100;
+    setNewTransaction((prevState) => ({
+      ...prevState,
+      [name]: tempValue,
+    }));
+  };
+
   return (
     <div className="max-w-6xl p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto mt-8">
       <div className="flex justify-between items-center mb-4">
@@ -94,7 +104,7 @@ export const AddTransaction = () => {
           type="number"
           name="value"
           value={newTransaction.value}
-          onChange={handleInputChange}
+          onChange={handleValueChange}
           placeholder="Enter value"
         />
       </div>

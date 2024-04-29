@@ -118,6 +118,9 @@ export default function AdvancedSummary() {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const transactionsData = await response.json();
+            for(let i = 0; i < transactionsData.transactions.length; i++) {
+                transactionsData.transactions[i].value = parseFloat(transactionsData.transactions[i].value).toFixed(2);
+            }
             setTransactionList(transactionsData.transactions)
             // console.log(categories.categories)
 
@@ -462,13 +465,13 @@ export default function AdvancedSummary() {
 
                         <div class="flex mt-4 justify-center w-full bg-white border-gray-500 rounded-lg border-gray-400 ">
                             <div class="justify-center bg-white mt-0 mr-4 border-gray-500 rounded-lg  border-gray-400 ">
-                                <p class="mb-2 text-4xl tracking-tight text-gray-900">{selectedValue2}</p>
-                                <p class="mb-2 text-7xl font-bold tracking-tight text-gray-900">${selectedValue}</p>
+                                <p class="mb-2 text-4xl tracking-tight text-gray-900">{parseFloat(selectedValue2).toFixed(2)}</p>
+                                <p class="mb-2 text-7xl font-bold tracking-tight text-gray-900">${parseFloat(selectedValue).toFixed(2)}</p>
                                 <p class="mb-2 text-4xl tracking-tight text-gray-900">Spend so far</p>
                                 <p class="mb-2 mt-9 font-bold text-2xl tracking-tight text-gray-900">Category</p>
                                 <ul class="mb-2 max-w-xs text-x space-y-1 tracking-tight text-gray-900 list-disc list-inside text-gray-900 h-56 overflow-y-auto">
                                     {Object.entries(categories).map(([key, value]) => (
-                                        <li key={key}>{key} $<b>{value}</b><br></br><b>%{(value / selectedValue * 100).toFixed(2)}</b></li>
+                                        <li key={key}>{key} $<b>{parseFloat(value).toFixed(2)}</b><br></br><b>%{(value / selectedValue * 100).toFixed(2)}</b></li>
 
                                     ))}
                                 </ul>

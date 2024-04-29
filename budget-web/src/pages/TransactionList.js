@@ -6,7 +6,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 function transactionTotal(transactionList) {
   let sum = 0;
   for (let i = 0; i < transactionList.length; i++) {
-    sum += parseInt(transactionList[i].value);
+    sum += parseFloat(transactionList[i].value);
   }
   return sum.toFixed(2);
 }
@@ -112,7 +112,7 @@ export const TransactionList = () => {
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-gray-900">
-                      ${transaction.value}
+                      ${parseFloat(transaction.value).toFixed(2)}
                     </p>
                   </div>
                 </div>

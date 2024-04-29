@@ -122,7 +122,7 @@ export const TransactionDetail = () => {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
           value={transaction.value}
           onChange={(e) =>
-            setTransaction({ ...transaction, value: e.target.value })
+            setTransaction({ ...transaction, value: Math.round(e.target.value * 100) / 100 })
           }
         />
       </div>

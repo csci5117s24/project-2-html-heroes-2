@@ -37,7 +37,7 @@ function amountSpentInMonth(transactions, month, year) {
   for (let i = 0; i < transactions.length; i++) {
     const transactionDate = new Date(transactions[i].date);
     if (transactionDate.getFullYear() === year && transactionDate.getMonth() === month) {
-      sum += parseInt(transactions[i].value);
+      sum += parseFloat(transactions[i].value);
     }
   }
   return sum;
@@ -70,7 +70,7 @@ function totalCategoryExpenses(transactions, month, year) {
     if (!catexpenses[monthTransactionsFiltered[i].category]) {
       catexpenses[monthTransactionsFiltered[i].category] = 0;
     }
-    catexpenses[monthTransactionsFiltered[i].category] += parseInt(monthTransactionsFiltered[i].value);
+    catexpenses[monthTransactionsFiltered[i].category] += parseFloat(monthTransactionsFiltered[i].value);
   }
   return catexpenses;
 }
