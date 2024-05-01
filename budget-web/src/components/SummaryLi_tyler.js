@@ -9,11 +9,11 @@ export default function SummaryLi({category, color, cost}) {
                         <span className={classes.dot} style={{backgroundColor: color}}></span>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                        <p class="text-xl text-gray-900 truncate dark:text-white">
                             {category}
                         </p>
                     </div>
-                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                    <div class="inline-flex items-center text-xl text-base font-semibold text-gray-900 dark:text-white">
                         ${cost}
                     </div>
                 </div>

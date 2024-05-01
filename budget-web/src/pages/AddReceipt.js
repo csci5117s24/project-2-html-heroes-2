@@ -130,7 +130,7 @@ function AddReceipt() {
             <>
               <div className="grid sm:grid-cols-2 gap-4 m-3 bg-gray-200 p-5 rounded-lg">
                 <div>
-                  <label className="block mb-2 text-sm font-bold text-gray-900 dark:text-white">
+                  <label className="block mb-2 text-sm font-bold text-gray-900 dark:text-black">
                     Receipt Preview
                   </label>
                   <div className="flex justify-center items-center">

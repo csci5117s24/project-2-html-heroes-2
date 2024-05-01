@@ -15,7 +15,7 @@ export default function SetUpBudget() {
         inputVal = Math.round(inputVal * 100) / 100;
         let min = parseFloat(savingsTarget)
         let max = 999999999999
-        if (inputVal < 0 || undefined){ // set monthlyIncome to 0 if negative or undefined
+        if (inputVal < 0 || undefined) { // set monthlyIncome to 0 if negative or undefined
             inputVal = 0;
         }
         if (inputVal < min) {
@@ -37,7 +37,7 @@ export default function SetUpBudget() {
         let max = parseFloat(monthlyIncome)
         if (inputVal > max) {
             inputVal = max
-        } else if (inputVal < 0){
+        } else if (inputVal < 0) {
             inputVal = 0;
         }
         setSavingsTarget(inputVal);
@@ -47,13 +47,13 @@ export default function SetUpBudget() {
         if (monthlyBudget < 0 || isNaN(monthlyBudget)) {
             window.alert("Your Budget should be positive and not NaN")
         } else {
-            await fetch("/api/budget/"+ encodeURIComponent(monthlyBudget), {
+            await fetch("/api/budget/" + encodeURIComponent(monthlyBudget), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(),
-              });
-              setMonthlyIncome(0);
-              setSavingsTarget(0);
+            });
+            setMonthlyIncome(0);
+            setSavingsTarget(0);
             navigate("/dashboard1");
         }
     };
@@ -67,10 +67,10 @@ export default function SetUpBudget() {
     let monthlyBudget = monthlyIncome
         ? monthlyIncome - (savingsTarget ?? 0)
         : 0;
-    
+
     const rate = monthlyIncome
-    ? (savingsTarget ?? 0) / monthlyIncome * 100
-    : 0;
+        ? (savingsTarget ?? 0) / monthlyIncome * 100
+        : 0;
 
     // ensure Saving Numbers look correct (not NaN and two decimal places)
     let savings;
@@ -91,96 +91,98 @@ export default function SetUpBudget() {
                 </div>
             </header>
             <main>
-                <div class="flex">
-                    <div class="flex mr-0 justify-center mx-auto max-w-9xl py-6 sm:px-6 lg:px-8">
-                        <div class="max-w-4xl mr-0 justify-center p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div class="flex justify-center mb-7">
-                                <img class="bg-white w-12 h-12 rounded-full" src="category-icon/budget.svg" alt="Neil image" />
-                            </div>
-                            <h1 class="mb-9 text-center text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Update Your budget</h1>
-                            <h2 class="mb-9 text-center text-xl tracking-tight text-gray-900 dark:text-white">We subtract our savings target from your income to set your monthly budget</h2>
-                            <div class="flex mb-6">
-                                <div>
-                                    <p class="mb-2 flex justify-center text-xl tracking-tight text-gray-900 dark:text-white">Monthly income</p>
-                                    <div class="flex mb-6 justify-center">
-                                        <p class="dark:bg-gray-800 text-3xl font-bold dark:text-white border-b border-gray-400 border-b-1 appearance-none text-gray-900 leading-tight focus:outline-none focus:shadow-outline">$</p>
-                                        <input
-                                            class="dark:bg-gray-800 w-64 mx-auto text-center text-3xl font-bold flex justify-center dark:text-white border-b border-gray-400 border-b-1 appearance-none w-full text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
-                                            type="number"
-                                            name="description"
-                                            onChange={handleSetMonthlyIncome2}
-                                            value={monthlyIncome}
-                                            placeholder=""
-                                        />
-                                    </div>
-                                
+                <div class="mx-auto max-w-6xl py-6 sm:px-6 lg:px-8">
+                    <div class="flex items-stretch justify-center flex-wrap lg:flex-nowrap">
+                        <div className="w-full md:w-1/2 h-auto">
+                            <div class="p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <div class="flex justify-center mb-7">
+                                    <img class="bg-white w-12 h-12 rounded-full" src="category-icon/budget.svg" alt="Neil image" />
                                 </div>
-                                <div>
-                                    <p class="ml-9 mr-9 text-4xl tracking-tight text-gray-900 dark:text-white">-</p>
-                                </div>
-                                <div>
-                                    <p class="mb-2 flex justify-center text-xl tracking-tight text-gray-900 dark:text-white">Savings target</p>
-                                    <div class="flex mb-6 justify-center">
-                                        <p class="dark:bg-gray-800 text-3xl font-bold dark:text-white border-b border-gray-400 border-b-1 appearance-none text-gray-900 leading-tight focus:outline-none focus:shadow-outline">$</p>
-                                        <input
-                                            class="dark:bg-gray-800 w-64 mx-auto text-center text-3xl font-bold flex justify-center dark:text-white border-b border-gray-400 border-b-1 appearance-none w-full text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
-                                            type="number"
-                                            name="description"
-                                            onChange={handleSetSavingsTarget2}
-                                            placeholder=""
-                                            value = {savingsTarget}
-                                        />
-                                    </div>
-                                    <p class="mb-2 mt-2 flex justify-center text-l tracking-tight text-gray-200 dark:text-white">{Number(rate).toFixed(2)} % of your monthly income</p>
+                                <h1 class="mb-9 text-center text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Update Your budget</h1>
+                                <h2 class="mb-9 text-center text-xl tracking-tight text-gray-900 dark:text-white">We subtract our savings target from your income to set your monthly budget</h2>
+                                <div class="flex mb-6">
+                                    <div>
+                                        <p class="mb-2 flex justify-center text-xl tracking-tight text-gray-900 dark:text-white">Monthly income</p>
+                                        <div class="flex mb-6 justify-center">
+                                            <p class="dark:bg-gray-800 text-3xl font-bold dark:text-white border-b border-gray-400 border-b-1 appearance-none text-gray-900 leading-tight focus:outline-none focus:shadow-outline">$</p>
+                                            <input
+                                                class="dark:bg-gray-800 w-64 mx-auto text-center text-3xl font-bold flex justify-center dark:text-white border-b border-gray-400 border-b-1 appearance-none w-full text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                                                type="number"
+                                                name="description"
+                                                onChange={handleSetMonthlyIncome2}
+                                                value={monthlyIncome}
+                                                placeholder=""
+                                            />
+                                        </div>
 
+                                    </div>
+                                    <div>
+                                        <p class="ml-9 mr-9 text-4xl tracking-tight text-gray-900 dark:text-white">-</p>
+                                    </div>
+                                    <div>
+                                        <p class="mb-2 flex justify-center text-xl tracking-tight text-gray-900 dark:text-white">Savings target</p>
+                                        <div class="flex mb-6 justify-center">
+                                            <p class="dark:bg-gray-800 text-3xl font-bold dark:text-white border-b border-gray-400 border-b-1 appearance-none text-gray-900 leading-tight focus:outline-none focus:shadow-outline">$</p>
+                                            <input
+                                                class="dark:bg-gray-800 w-64 mx-auto text-center text-3xl font-bold flex justify-center dark:text-white border-b border-gray-400 border-b-1 appearance-none w-full text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                                                type="number"
+                                                name="description"
+                                                onChange={handleSetSavingsTarget2}
+                                                placeholder=""
+                                                value={savingsTarget}
+                                            />
+                                        </div>
+                                        <p class="mb-2 mt-2 flex justify-center text-l tracking-tight text-gray-200 dark:text-white">{Number(rate).toFixed(2)} % of your monthly income</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flex mb-8 justify-center">
-                                <div>
-                                    <p class="ml-9 mr-9 text-4xl tracking-tight text-gray-900 dark:text-white">=</p>
+                                <div class="flex mb-8 justify-center">
+                                    <div>
+                                        <p class="ml-9 mr-9 text-4xl tracking-tight text-gray-900 dark:text-white">=</p>
+                                    </div>
+                                    <div>
+                                        <p class="mb-2 flex text-center justify-center text-xl tracking-tight text-gray-900 dark:text-white">Monthly budget</p>
+                                        <p
+                                            class="dark:bg-gray-800 w-64 mx-auto text-center text-3xl font-bold flex justify-center dark:text-white appearance-none text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
+                                        >${monthlyBudget.toFixed(2)}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="mb-2 flex text-center justify-center text-xl tracking-tight text-gray-900 dark:text-white">Monthly budget</p>
-                                    <p
-                                        class="dark:bg-gray-800 w-64 mx-auto text-center text-3xl font-bold flex justify-center dark:text-white appearance-none text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
-                                    >${monthlyBudget.toFixed(2)}</p>
+                                <div class="flex justify-center">
+                                    <button
+                                        class="mr-3 px-4 py-2 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:outline-none"
+                                        onClick={handleSave}
+                                    >
+                                        save
+                                    </button>
+                                    <button
+                                        class="px-4 py-2 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:outline-none"
+                                        onClick={handleDiscard}
+                                    >
+                                        Dicard
+                                    </button>
                                 </div>
-                            </div>
-                            <div class="flex justify-center">
-                                <button
-                                    class="mr-3 px-4 py-2 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:outline-none"
-                                    onClick={handleSave}
-                                >
-                                    save
-                                </button>
-                                <button
-                                    class="px-4 py-2 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:outline-none"
-                                    onClick={handleDiscard}
-                                >
-                                    Dicard
-                                </button>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex ml-0 justify-center mx-auto max-w-5xl py-6 sm:px-6 lg:px-8">
-                        <div class="max-w-4xl ml-0 justify-center p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <h1 class="mb-9 text-center text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Potential Savings</h1>
-                            <h2 class="mb-9 text-center text-xl tracking-tight text-gray-900 dark:text-white">If you set aside $ {savings} each month, you will get</h2>
-                            <div class="flex mb-6 justify-center">
-                                <p class="font-bold mb-2 mr-9 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">$ {savings * 12}</p>
-                                <p class="font-bold mb-2 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">in 1 year</p>
-                            </div>
-                            <div class="flex mb-6 justify-center">
-                                <p class="font-bold mb-2 mr-9 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">$ {savings * 24}</p>
-                                <p class="font-bold mb-2 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">in 2 years</p>
-                            </div>
-                            <div class="flex mb-6 justify-center">
-                                <p class="font-bold mb-2 mr-9 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">$ {savings * 36}</p>
-                                <p class="font-bold mb-2 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">in 3 years</p>
+                        <div class="ml-0 md:ml-2 mt-3 md:mt-0 w-full md:w-1/2">
+                            <div class="p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <h1 class="mb-9 text-center text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Potential Savings</h1>
+                                <h2 class="mb-9 text-center text-xl tracking-tight text-gray-900 dark:text-white">If you set aside $ {savings} each month, you will get</h2>
+                                <div class="flex mb-6 justify-center">
+                                    <p class="font-bold mb-2 mr-9 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">$ {savings * 12}</p>
+                                    <p class="font-bold mb-2 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">in 1 year</p>
+                                </div>
+                                <div class="flex mb-6 justify-center">
+                                    <p class="font-bold mb-2 mr-9 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">$ {savings * 24}</p>
+                                    <p class="font-bold mb-2 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">in 2 years</p>
+                                </div>
+                                <div class="flex mb-6 justify-center">
+                                    <p class="font-bold mb-2 mr-9 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">$ {savings * 36}</p>
+                                    <p class="font-bold mb-2 flex justify-center text-xl tracking-tight text-green-600 dark:text-green">in 3 years</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </main>
         </>
     )

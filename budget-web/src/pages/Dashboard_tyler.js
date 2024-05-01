@@ -25,8 +25,16 @@ const dateLeftMonth = daysRemainingInMonth(currDay, currMonth, currDay);
 
 /* get all transactions within a given year and month */
 function monthTransactions(transactions, month, year) {
+  // console.log("Today is " + month + " " + year)
+  // console.log(transactions)
+  
   return transactions.filter(function(transaction) {
-    let date = new Date(transaction.date);
+    let date = new Date(transaction.date+"T00:00:00-05:00");
+    // console.log("---------------------")
+    // console.log(transaction.description)
+    // console.log(typeof transaction.date)
+    // console.log(date.getMonth() + " " + date.getFullYear())
+    // console.log("input month and year: " + month + " " + year)
     return date.getFullYear() === year && date.getMonth() === month});
 }
 
@@ -53,6 +61,7 @@ function budgetRemaining(amountSpent, budget) {
 function getRecentTransactions(transactions, n, month, year) {
   // filter by month and year
   let monthTransactionsFiltered = monthTransactions(transactions, month, year);
+  // console.log(`Today is ${month} ${year}`)
   // sort by date
   let sortedTransactions = monthTransactionsFiltered.sort(function(transactionA, transactionB) {
     return new Date(transactionB.date) - new Date(transactionA.date);
@@ -134,11 +143,11 @@ function Dashboard1() {
   const catExpenses = totalCategoryExpenses(transactions, currMonth, currYear);
   const totals = totalCategoryExpensesSortedList(catExpenses, categories);
 
-  console.log(amountSpentThisMonth);
-  console.log("This is "+budgetLeft);
-  console.log(recentTransactions);
-  console.log(catExpenses);
-  console.log(totals);
+  // console.log(amountSpentThisMonth);
+  // console.log("This is budgetleft "+budgetLeft);
+  // console.log("This is recenttransaction " + recentTransactions);
+  // console.log(catExpenses);
+  // console.log(totals);
 
   return (
     <>
@@ -158,9 +167,9 @@ function Dashboard1() {
           </div>
         </header>
         <main>
-          <div class="mx-auto max-w-9xl py-6 sm:px-6 lg:px-8">
-            <div class="flex justify-center ">
-              <div>
+          <div class="mx-auto max-w-8xl py-6 lg:px-8">
+            <div class="justify-center flex flex-wrap lg:flex-nowrap ">
+              <div class="mb-6 w-full md:w-2/3 order-1 md:order-1">
                 <BudgetSummary
                   month={currentMonthUSName}
                   budgetLeft={Number(budgetLeft).toFixed(2)}

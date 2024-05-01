@@ -36,7 +36,8 @@ export const CategoryList = () => {
   const colorHash = new ColorHash({ hue: { min: 180, max: 359 } });
 
   return (
-    <div className="max-w-6xl p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto mt-8">
+    <div className="max-w-6xl mx-auto">
+      <div className="p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-8">
       <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
         Categories
       </h1>
@@ -92,6 +93,7 @@ export const CategoryList = () => {
           Transaction List
         </Link>
       </div>
+    </div>
     </div>
   );
 };

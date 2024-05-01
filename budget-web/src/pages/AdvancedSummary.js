@@ -161,14 +161,14 @@ export default function AdvancedSummary() {
         })
       );
 
-      // // Add scrollbar
-      // // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-      // chart.set(
-      //     "scrollbarX",
-      //     am5.Scrollbar.new(root, {
-      //         orientation: "horizontal"
-      //     })
-      // );
+      // Add scrollbar
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+      chart.set(
+          "scrollbarX",
+          am5.Scrollbar.new(root, {
+              orientation: "horizontal"
+          })
+      );
 
       // Create axes
       // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
@@ -434,7 +434,8 @@ export default function AdvancedSummary() {
             <div class="relative flex items-center font-bold justify-cente ml-4 text-3xl">
               <div class="group cursor-help">
                 ⓘ
-                <div class="text-4xl absolute top-full mt-2 hidden w-40 rounded bg-black px-3 py-2 text-white text-sm text-center group-hover:block ">
+                <div class="text-4xl absolute top-full mt-2 hidden w-40 bg-gray-900 rounded px-3 py-2 text-white text-sm text-center group-hover:block "
+                style={{ top: '100%', left: '0%', transform: 'translateX(-90%)' }}>
                   For Monthly graph, only 6-months time windows will be kept;
                   For Yearly graph, only 2-years time windows.
                 </div>
@@ -474,10 +475,10 @@ export default function AdvancedSummary() {
               </ul>
             </div>
 
-            <div class="flex mt-4 justify-center w-full bg-white border-gray-500 rounded-lg border-gray-400 ">
-              <div class="justify-center bg-white mt-0 mr-4 border-gray-500 rounded-lg  border-gray-400 ">
+            <div class="mx-auto justify-center flex flex-wrap lg:flex-nowrap mt-4 justify-center w-full bg-white border-gray-500 rounded-lg border-gray-400 ">
+              <div class="justify-center bg-white mt-0 mb-0 mr-4 border-gray-500 rounded-lg  border-gray-400">
                 <p class="mb-2 text-4xl tracking-tight text-gray-900">
-                  {parseFloat(selectedValue2).toFixed(2)}
+                  {selectedValue2}
                 </p>
                 <p class="mb-2 text-7xl font-bold tracking-tight text-gray-900">
                   ${parseFloat(selectedValue).toFixed(2)}
@@ -488,7 +489,7 @@ export default function AdvancedSummary() {
                 <p class="mb-2 mt-9 font-bold text-2xl tracking-tight text-gray-900">
                   Category
                 </p>
-                <ul class="mb-2 max-w-xs text-x space-y-1 tracking-tight text-gray-900 list-disc list-inside text-gray-900 h-56 overflow-y-auto">
+                <ul class="mb-0 max-w-xs text-x space-y-1 tracking-tight text-gray-900 list-disc list-inside text-gray-900 h-32 overflow-y-auto">
                   {Object.entries(categories).map(([key, value]) => (
                     <li key={key}>
                       {key} $<b>{parseFloat(value).toFixed(2)}</b>
@@ -500,7 +501,7 @@ export default function AdvancedSummary() {
               </div>
               <div
                 ref={chartDivRef}
-                style={{ width: "80%", height: "500px" }}
+                style={{ width: "89%", height: "380px" }}
               ></div>
             </div>
           </div>

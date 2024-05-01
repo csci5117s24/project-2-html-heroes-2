@@ -96,10 +96,10 @@ export default function BudgetSummary({ month, budgetLeft, dateLeftMonth, spent,
 
   return (
     <>
-      <div class="max-w-2xl p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative">
+      <div class="ml-0 mr-0 mb-6 md:mb-0 max-w-4xl p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative">
         <div class="flex">
           <h1 class="mb-2 mr-20 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">{month} Budget</h1>
-          <button onClick={handleSetUpBudget} type="button" class="ml-auto text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Edit Budget</button>
+          <button onClick={handleSetUpBudget} type="button" class="ml-auto text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-2 py-2 text-center me-2 mb-2">Edit Budget</button>
         </div>
         {(() => {
           if (budgetLeft < 0) {
@@ -110,9 +110,9 @@ export default function BudgetSummary({ month, budgetLeft, dateLeftMonth, spent,
 
           }
         })()}
-        <div class="flex">
-          <div id="chartdiv2" class="w-full mt-5 mb-5 mr-5" style={{ height: 280 + "px" }}></div>
-          <div class="budgetSummaryText">
+        <div class="flex flex-wrap lg:flex-nowrap ">
+          <div id="chartdiv2" class="mt-5 mb-5 mr-2" style={{width:"87%" , height: 250 + "px"}}></div>
+          <div class="max-w-2xl">
             <p class="mt-5 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Spent so far ${spent}</p>
             {(() => {
               if (budgetLeft < 0) {
