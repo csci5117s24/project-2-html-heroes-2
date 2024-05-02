@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 export const AddTransaction = () => {
+  const location = useLocation();
   const [newTransaction, setNewTransaction] = useState({
-    description: "",
-    value: "",
-    category: "",
-    date: "",
+    description: location.state?.description || "",
+    value: location.state?.value || "",
+    category: "Other",
+    date: (new Date()).toISOString().substring(0, 10),
   });
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
@@ -44,24 +45,52 @@ export const AddTransaction = () => {
     }));
   };
 
+  const handleValueChange = (e) => {
+    const { name, value } = e.target;
+    let tempValue = value;
+    tempValue = Math.round(value * 100) / 100;
+    setNewTransaction((prevState) => ({
+      ...prevState,
+      [name]: tempValue,
+    }));
+  };
+
   return (
-    <div className="container mx-auto mt-8">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-3xl font-bold">Add Transaction</h1>
-        <Link
-          to="/categories"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Manage Categories
-        </Link>
-      </div>
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="mx-auto max-w-4xl">
+      <div className="p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-8">
+        <div className="flex flex-wrap justify-between items-center mb-4">
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Add Transaction
+          </h1>
+
+          <div className="flex flex-wrap mt-3 md:mt-0">
+            <Link
+              to="/transactions"
+              className="text-white mr-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Transaction List
+            </Link>
+            <Link
+              to="/add-receipt"
+              className="text-white mr-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Capture Receipt
+            </Link>
+
+            <Link
+              to="/categories"
+              className="text-white mr-2 mt-2 md:mt-0 bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Manage Categories
+            </Link>
+          </div>
+        </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block mb-2 text-sm font-bold text-gray-900 dark:text-white">
             Description
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
             type="text"
             name="description"
             value={newTransaction.description}
@@ -70,20 +99,20 @@ export const AddTransaction = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block mb-2 text-sm font-bold text-gray-900 dark:text-white">
             Value
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
             type="number"
             name="value"
             value={newTransaction.value}
-            onChange={handleInputChange}
+            onChange={handleValueChange}
             placeholder="Enter value"
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block mb-2 text-sm font-bold text-gray-900 dark:text-white">
             Category
           </label>
           <div className="relative">
@@ -112,11 +141,11 @@ export const AddTransaction = () => {
           </div>
         </div>
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="block mb-2 text-sm font-bold text-gray-900 dark:text-white">
             Date
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
             type="date"
             name="date"
             value={newTransaction.date}
@@ -125,7 +154,7 @@ export const AddTransaction = () => {
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             type="button"
             onClick={createTransaction}
           >

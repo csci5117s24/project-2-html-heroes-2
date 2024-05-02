@@ -33,7 +33,6 @@ function Dashboard() {
         <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
           <MonthSummmary />
           <TotalSpending />
-
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <SpendingSummary />
             <RecentTransactions />

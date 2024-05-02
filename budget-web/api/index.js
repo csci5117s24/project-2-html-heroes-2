@@ -19,6 +19,7 @@ Transactions collection:
   value: ...
   category: ...
   date: ...
+  description: ...
 }
 */
 
@@ -68,7 +69,7 @@ app.http("addUser", {
     const newUser = {
       _id: userId,
       budget: 0,
-      categories: [],
+      categories: ["Other"],
     };
     const client = await mongoClient.connect(process.env.AZURE_MONGO_DB);
     const res = await client
@@ -260,7 +261,7 @@ app.http("getTransaction", {
     const transaction = await client
       .db("budgetapp")
       .collection("transactions")
-      .findOne({ _id: objectId, userId: userId });
+      .findOne({ _id: objectId, userid: userId });
     client.close();
     return {
       jsonBody: { transaction: transaction },
@@ -305,7 +306,7 @@ app.http("addTransaction", {
 });
 
 app.http("updateTransaction", {
-  methods: ["POST"],
+  methods: ["PUT"],
   authLevel: "anonymous",
   route: "transaction/{id}",
   handler: async (request, context) => {
@@ -342,7 +343,7 @@ app.http("updateTransaction", {
 });
 
 app.http("deleteTransaction", {
-  methods: ["POST"],
+  methods: ["DELETE"],
   authLevel: "anonymous",
   route: "transaction/{id}",
   handler: async (request, context) => {
@@ -351,21 +352,17 @@ app.http("deleteTransaction", {
     );
     const userId = xmsHeader.userId;
     if (!userId) {
-      return {
-        status: 500,
-      };
+      return { status: 500 };
     }
-
     const id = request.params.id;
+    const objectId = new ObjectId(id);
     const client = await mongoClient.connect(process.env.AZURE_MONGO_DB);
     const result = await client
       .db("budgetapp")
       .collection("transactions")
-      .remove({ _id: id });
+      .deleteOne({ _id: objectId, userid: userId });
     client.close();
-    return {
-      status: 201
-    };
+    return { status: 201 };
   },
 });
 
