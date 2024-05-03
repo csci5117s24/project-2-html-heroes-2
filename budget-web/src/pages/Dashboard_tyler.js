@@ -167,9 +167,9 @@ function Dashboard1() {
           </div>
         </header>
         <main>
-          <div class="mx-auto max-w-8xl py-6 lg:px-8">
+          <div class="mx-auto max-w-7xl py-6 lg:px-8">
             <div class="justify-center flex flex-wrap lg:flex-nowrap ">
-              <div class="mb-6 w-full md:w-2/3 order-1 md:order-1">
+              <div class="mb-6 w-full md:w-2/3 order-1 md:order-1 mr-0 md:mr-5">
                 <BudgetSummary
                   month={currentMonthUSName}
                   budgetLeft={Number(budgetLeft).toFixed(2)}
