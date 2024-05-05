@@ -490,7 +490,7 @@ export default function AdvancedSummary() {
                   Category
                 </p>
                 <p class="mb-2 text-x tracking-tight text-gray-900">
-                  *precentage is the precent of toal
+                  *precentage is the precent of total
                 </p>
                 <ul class="mb-0 max-w-xs text-x space-y-1 tracking-tight text-gray-900 list-disc list-inside text-gray-900 h-32 overflow-y-auto">
                   {Object.entries(categories).map(([key, value]) => (
