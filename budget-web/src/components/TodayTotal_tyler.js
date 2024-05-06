@@ -87,13 +87,13 @@ export default function TodayTotal(props) {
 
     return (
         <>
-            <div class="ml-0 mr-0 mt-0 md:ml-0 p-6 w-full md:w-1/3 order-2 md:order-2 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <h1 class="mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Total Spending this Month</h1>
+            <div className="ml-0 mr-0 mt-0 md:ml-0 p-6 w-full md:w-1/3 order-2 md:order-2 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <h1 className="mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Total Spending this Month</h1>
                 {/* <!-- Donut Chart --> */}
                 <ReactApexChart options={options} series={series} type="donut" height={320} />
-                <div class="mt-5 border-gray-200 border-t dark:border-gray-700">
-                    <h1 class="mb-5 mt-5 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Spending Summary</h1>
-                    <ul class="max-w-md dark:divide-gray-700 h-64 overflow-y-auto">
+                <div className="mt-5 border-gray-200 border-t dark:border-gray-700">
+                    <h1 className="mb-5 mt-5 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Spending Summary</h1>
+                    <ul className="max-w-md dark:divide-gray-700 h-64 overflow-y-auto">
                         {summary(props.categories, props.totals)}
                         {/* <SummaryLi svg_src="category-icon/entertainment-svgrepo-com.svg" category="Entertainment" cost="12" />
                         <SummaryLi svg_src="category-icon/food-svgrepo-com.svg" category="Food & Drink" cost="30" />

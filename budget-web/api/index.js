@@ -422,3 +422,50 @@ app.http("getAllCategoryTransactions", {
     };
   },
 });
+
+// app.http("scanReceipt", {
+//   methods: ["POST"],
+//   authLevel: "anonymous",
+//   route: "scan",
+//   handler: async (request, context) => {
+//     const body = await request.formData();
+//     const file = body.get("file");
+//     const response = await fetch(file);
+//     const blob = await response.blob();
+
+
+//     const {
+//       AzureKeyCredential,
+//       DocumentAnalysisClient,
+//     } = require("@azure/ai-form-recognizer");
+
+//     const key = process.env.REACT_APP_RECEIPT_KEY;
+//     const endpoint =
+//       "https://5117-receipt-scanner.cognitiveservices.azure.com/";
+
+//     const client = new DocumentAnalysisClient(
+//       endpoint,
+//       new AzureKeyCredential(key)
+//     );
+
+//     const poller = await client.beginAnalyzeDocument("prebuilt-receipt", blob);
+//     const {
+//       documents: [result],
+//     } = await poller.pollUntilDone();
+
+//     if (result) {
+//       client.close();
+//       return {
+//         jsonBody: {
+//           total: result.total,
+//           merchant: result.merchant,
+//         },
+//       };
+//     } else {
+//       client.close();
+//       return {
+//         jsonBody: { error: "Error scanning receipt" },
+//       };
+//     }
+//   },
+// });

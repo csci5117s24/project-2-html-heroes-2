@@ -56,7 +56,7 @@ export const AddTransaction = () => {
   };
 
   return (
-    <div className="mx-auto max-w-4xl">
+    <div className="mx-auto max-w-4xl mb-10">
       <div className="p-6 bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mt-8">
         <div className="flex flex-wrap justify-between items-center mb-4">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
