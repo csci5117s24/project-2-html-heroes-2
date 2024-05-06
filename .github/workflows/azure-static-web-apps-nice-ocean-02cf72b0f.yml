@@ -1,5 +1,6 @@
 env:
   CI: false
+  REACT_APP_RECEIPT_KEY: ${{ secrets.REACT_APP_RECEIPT_KEY }}
   
 name: Azure Static Web Apps CI/CD
 
