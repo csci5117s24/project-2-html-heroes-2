@@ -34,14 +34,65 @@ function AddReceipt() {
     setMerchant(e.target.value);
   }
 
+  // async function receiptApi() {
+  //   console.log(file)
+  //   setLoading(true);
+
+  //   // convert url to blob
+  //   const response_img = await fetch(file);
+  //   const blob = await response_img.blob();
+
+  //   // convert blob to base64
+  //   const reader = new FileReader();
+  //   var base64data;
+  //   reader.readAsDataURL(blob);
+  //   reader.onloadend = function() {
+  //     base64data = reader.result;
+  //     console.log(base64data);
+  //   }
+    
+  //   const formData = new FormData();
+  //   formData.append("file", base64data);
+  //   formData.append("url", file)
+  //   formData.append("test", "test");
+
+  //   // print out the form data
+  //   for (var pair of formData.entries()) {
+  //     console.log(pair[0] + ", " + pair[1]);
+  //   }
+    
+  //   const response = await fetch("/api/scan", {
+  //     method: "POST",
+  //     body: formData,
+  //   });
+
+  //   const data = await response.json();
+
+  //   if (data.error) {
+  //     alert("Error scanning receipt. Please try later.");
+  //   }
+    
+  //   if (data.total) {
+  //     setTotal(data.total);
+  //   }
+  //   if (data.merchant) {
+  //     setMerchant(data.merchant);
+  //   }
+  //   setScanned(true);
+  //   setLoading(false);
+  // }
+
+
   async function readReceipt(file) {
+
+    console.log(file)
     setLoading(true);
     const {
       AzureKeyCredential,
       DocumentAnalysisClient,
     } = require("@azure/ai-form-recognizer");
 
-    const key = process.env.REACT_APP_RECEIPT_KEY;
+    const key = "4172525b6810463692226dffea3b3068";
     const endpoint =
       "https://5117-receipt-scanner.cognitiveservices.azure.com/";
 

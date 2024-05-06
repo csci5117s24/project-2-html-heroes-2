@@ -152,14 +152,14 @@ function Dashboard1() {
   return (
     <>
       <div>
-        <header class="bg-white shadow">
-          <div class="flex mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+        <header className="bg-white shadow">
+          <div className="flex mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
               Your Dashboard
             </h1>
             <button
               type="button"
-              class="ml-auto text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              className="ml-auto text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               onClick={handleAddTransaction}
             >
               Add Transaction
@@ -167,9 +167,9 @@ function Dashboard1() {
           </div>
         </header>
         <main>
-          <div class="mx-auto max-w-7xl py-6 lg:px-8">
-            <div class="justify-center flex flex-wrap lg:flex-nowrap ">
-              <div class="mb-6 w-full md:w-2/3 order-1 md:order-1 mr-0 md:mr-5">
+          <div className="mx-auto max-w-7xl py-6 lg:px-8">
+            <div className="justify-center flex flex-wrap lg:flex-nowrap ">
+              <div className="mb-6 w-full md:w-2/3 order-1 md:order-1 mr-0 md:mr-5">
                 <BudgetSummary
                   month={currentMonthUSName}
                   budgetLeft={Number(budgetLeft).toFixed(2)}

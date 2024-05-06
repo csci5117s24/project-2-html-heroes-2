@@ -426,15 +426,15 @@ export default function AdvancedSummary() {
   return (
     <>
       <div>
-        <header class="bg-white shadow">
-          <div class="flex mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+        <header className="bg-white shadow">
+          <div className="flex mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
               Your Advanced Summary
             </h1>
-            <div class="relative flex items-center font-bold justify-cente ml-4 text-3xl">
-              <div class="group cursor-help">
+            <div className="relative flex items-center font-bold justify-cente ml-4 text-3xl">
+              <div className="group cursor-help">
                 ⓘ
-                <div class="text-4xl absolute top-full mt-2 hidden w-40 bg-gray-900 rounded px-3 py-2 text-white text-sm text-center group-hover:block "
+                <div className="text-4xl absolute top-full mt-2 hidden w-40 bg-gray-900 rounded px-3 py-2 text-white text-sm text-center group-hover:block "
                 style={{ top: '100%', left: '0%', transform: 'translateX(-90%)' }}>
                   For Monthly graph, only 6-months time windows will be kept;
                   For Yearly graph, only 2-years time windows.
@@ -444,10 +444,10 @@ export default function AdvancedSummary() {
           </div>
         </header>
         <main>
-          <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 flex flex-col items-center">
-            <div class="border-b border-gray-200 dark:border-gray-700">
-              <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400  ">
-                <li class="me-2">
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 flex flex-col items-center">
+            <div className="border-b border-gray-200 dark:border-gray-700">
+              <ul className="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400  ">
+                <li className="me-2">
                   <a
                     onClick={() => setActiveTab("Monthly")}
                     className={`inline-flex items-center justify-center p-4 rounded-t-lg cursor-pointer ${
@@ -475,29 +475,29 @@ export default function AdvancedSummary() {
               </ul>
             </div>
 
-            <div class="mx-auto justify-center flex flex-wrap lg:flex-nowrap mt-4 justify-center w-full bg-white border-gray-500 rounded-lg border-gray-400 ">
-              <div class="justify-center bg-white mt-0 mb-0 mr-4 border-gray-500 rounded-lg  border-gray-400">
-                <p class="mb-2 text-4xl tracking-tight text-gray-900">
+            <div className="mx-auto justify-center flex flex-wrap lg:flex-nowrap mt-4 justify-center w-full bg-white border-gray-500 rounded-lg border-gray-400 ">
+              <div className="justify-center bg-white mt-0 mb-0 mr-4 border-gray-500 rounded-lg  border-gray-400">
+                <p className="mb-2 text-4xl tracking-tight text-gray-900">
                   {selectedValue2}
                 </p>
-                <p class="mb-2 text-7xl font-bold tracking-tight text-gray-900">
+                <p className="mb-2 text-7xl font-bold tracking-tight text-gray-900">
                   ${parseFloat(selectedValue).toFixed(2)}
                 </p>
-                <p class="mb-2 text-4xl tracking-tight text-gray-900">
+                <p className="mb-2 text-4xl tracking-tight text-gray-900">
                   Spend so far
                 </p>
-                <p class="mb-2 mt-9 font-bold text-2xl tracking-tight text-gray-900">
+                <p className="mb-2 mt-9 font-bold text-2xl tracking-tight text-gray-900">
                   Category
                 </p>
-                <p class="mb-2 text-x tracking-tight text-gray-900">
+                <p className="mb-2 text-x tracking-tight text-gray-900">
                   *precentage is the precent of total
                 </p>
-                <ul class="mb-0 max-w-xs text-x space-y-1 tracking-tight text-gray-900 list-disc list-inside text-gray-900 h-32 overflow-y-auto">
+                <ul className="mb-0 max-w-xs text-x space-y-1 tracking-tight text-gray-900 list-disc list-inside text-gray-900 h-32 overflow-y-auto">
                   {Object.entries(categories).map(([key, value]) => (
                     <li key={key}>
                       {key} $<b>{parseFloat(value).toFixed(2)}</b>
                       <br></br>
-                      <b>%{((value / selectedValue) * 100).toFixed(2)}</b>
+                      <b>{((value / selectedValue) * 100).toFixed(2)}%</b>
                     </li>
                   ))}
                 </ul>
