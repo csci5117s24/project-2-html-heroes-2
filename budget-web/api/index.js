@@ -192,7 +192,7 @@ app.http("addCategory", {
     const result = await client
       .db("budgetapp")
       .collection("users")
-      .updateOne({ _id: userId }, { $push: { categories: name } });
+      .updateOne({ _id: userId }, { $addToSet: { categories: name } });
     client.close();
     if (result.matchedCount > 0) {
       return {
@@ -226,6 +226,10 @@ app.http("deleteCategory", {
       .db("budgetapp")
       .collection("users")
       .updateOne({ _id: userId }, { $pull: { categories: name } });
+    await client.db("budgetapp").collection("transactions").updateMany(
+      { category: name, userid: userId }, // Filter condition
+      { $set: { "category": "Other" } } // Update action
+    );
     client.close();
     if (result.matchedCount > 0) {
       return {
