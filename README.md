@@ -4,8 +4,8 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 
 ## App Info:
 
-* Team Name: TODO
-* App Name: TODO
+* Team Name: HTML HEROES
+* App Name: Budget  Tracker
 * App Link: <https://TODO.com/>
 
 ### Students
@@ -26,13 +26,11 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 
 Which (if any) device integration(s) does your app support?
 
-* ...
+* Makes Use of The Devices Camera To Capture Receipts, Parse the Total Cost, and Record the Total Cost of the Receipt's Transactions
 
 Which (if any) progressive web app feature(s) does your app support?
 
-* ...
-
-
+* The Web App is Installable to the Desktop Home Screen and Taskbar, and the Web App can be Launched from Such 
 
 ## Mockup images
 
