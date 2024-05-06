@@ -79,10 +79,10 @@ Which (if any) progressive web app feature(s) does your app support?
 *Edit transaction details after adding or scanning them*
 
 ![Screenshot 2024-05-06 022150](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/0355e12e-81e6-440d-876c-99e494f8f1c3)
-*See advanced data summary on monthly or yearly transactions*
+*A fully lived-in dashboard, showing your most recent transactions, budget progress, and at a glance summaries!*
 
 ![Screenshot 2024-05-06 023012](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/b7b36210-ccda-4597-8185-3b33370bf378)
-*A fully lived-in dashboard, showing your most recent transactions, budget progress, and at a glance summaries!*
+*See advanced data summary on monthly or yearly transactions*
 
 ![screenshot_2024-05-05_at_10 04 27___pm_720](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/b329cffb-8f2e-441f-a4ae-83347c270d2e)
 *Download the Web App to Desktop*
