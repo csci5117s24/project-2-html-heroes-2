@@ -56,7 +56,31 @@ along with a very brief caption:**
 
 ![](https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif)
 
+![Screenshot 2024-05-06 004536](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/c2ac2299-39b5-45c3-aaff-68a66d155b64)
 
+![Screenshot 2024-05-06 004559](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/9908223a-4ebd-4b64-b003-c35f0d22eafa)
+
+![Screenshot 2024-05-06 004708](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/227e901e-4565-4f57-916b-d060bb82ec7c)
+
+![Screenshot 2024-05-06 004752](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/15f60f21-be1f-4ef1-a2f4-11c71c8d4084)
+
+![Screenshot 2024-05-06 021528](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/a905d4d2-5933-429b-9fa4-66ca5103f943)
+
+![Screenshot 2024-05-06 021953](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/9adc5d4a-e8fc-4269-9590-33fbcc413a88)
+
+![Screenshot 2024-05-06 021844](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/ae02c253-4d85-4356-9abb-77eb0ab689d8)
+
+![Screenshot 2024-05-06 022405](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/e6de4ced-5458-48d9-89eb-76fc539feeb4)
+
+![Screenshot 2024-05-06 022020](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/a92ebd06-392e-4f73-8de9-dd67f01f04a3)
+
+![Screenshot 2024-05-06 022150](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/0355e12e-81e6-440d-876c-99e494f8f1c3)
+
+![Screenshot 2024-05-06 023012](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/b7b36210-ccda-4597-8185-3b33370bf378)
+
+![screenshot_2024-05-05_at_10 04 27___pm_720](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/b329cffb-8f2e-441f-a4ae-83347c270d2e)
+
+![Screenshot 2024-05-06 023638](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/92f0e711-caa1-40d9-a6fc-5e9d4a820f7b)
 
 ## External Dependencies
 
