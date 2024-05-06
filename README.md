@@ -54,7 +54,8 @@ Which (if any) progressive web app feature(s) does your app support?
 ![Screenshot 2024-05-06 004536](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/c2ac2299-39b5-45c3-aaff-68a66d155b64)
 
 ![Screenshot 2024-05-06 004559](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/9908223a-4ebd-4b64-b003-c35f0d22eafa)
-<figcaption>Splash page for new users</figcaption>
+*Splash page for new users*
+
 
 ![Screenshot 2024-05-06 004708](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/227e901e-4565-4f57-916b-d060bb82ec7c)
 <figcaption>Empty Dashboard</figcaption>
