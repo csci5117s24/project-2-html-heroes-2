@@ -55,13 +55,18 @@ Which (if any) progressive web app feature(s) does your app support?
 
 ![Screenshot 2024-05-06 004559](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/9908223a-4ebd-4b64-b003-c35f0d22eafa)
 <figcaption>Splash page for new users</figcaption>
+
 ![Screenshot 2024-05-06 004708](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/227e901e-4565-4f57-916b-d060bb82ec7c)
+<figcaption>Empty Dashboard</figcaption>
 
 ![Screenshot 2024-05-06 004752](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/15f60f21-be1f-4ef1-a2f4-11c71c8d4084)
+<figcaption>Set up a budget based on monthly income and expected savings</figcaption>
 
 ![Screenshot 2024-05-06 021528](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/a905d4d2-5933-429b-9fa4-66ca5103f943)
+<figcaption>Create and delete categories for sorting transactions</figcaption>
 
 ![Screenshot 2024-05-06 021953](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/9adc5d4a-e8fc-4269-9590-33fbcc413a88)
+<figcaption>Create and customize transaction details</figcaption>
 
 ![Screenshot 2024-05-06 021844](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/ae02c253-4d85-4356-9abb-77eb0ab689d8)
 
