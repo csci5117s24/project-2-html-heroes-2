@@ -121,6 +121,9 @@ function Dashboard1() {
   async function getCategories() {
     const categoryJson = await fetch("/api/categories");
     const categories = await categoryJson.json();
+    if (!categories.categories.includes("Other")) {
+      categories.categories.push("Other");
+    }
     setCategories(categories.categories)
   }
 

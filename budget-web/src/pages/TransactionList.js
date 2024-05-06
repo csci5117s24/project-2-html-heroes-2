@@ -52,6 +52,9 @@ export const TransactionList = () => {
   const fetchCategories = async () => {
     const response = await fetch("/api/categories");
     const data = await response.json();
+    if(!data.categories.includes("Other")) {
+      data.categories.push("Other");
+    }
     setCategories(data.categories);
   };
 
