@@ -47,7 +47,7 @@ Which (if any) progressive web app feature(s) does your app support?
 
 **Is there anything special we need to know in order to effectively test your app? (optional):**
 
-* ...
+* Changing the system into dark mode will get a better interface looking.
 
 
 
