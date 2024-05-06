@@ -45,7 +45,7 @@ export default function RecentTransactoin({transaction_list}) {
                     )
                     )}
                 </ul>
-                <button onClick={handleSeeTransactions} type="button" className="ml-auto border-b mb-3 text-white text-xl text-center me-2 mb-2">See more transactions</button>
+                <button onClick={handleSeeTransactions} type="button" className="ml-auto border-b mb-3 text-gray-900 dark:text-white text-xl text-center me-2 mb-2">See more transactions</button>
             </div>
         </>
     );

@@ -132,7 +132,7 @@ export default function SetUpBudget() {
                                                 value={savingsTarget}
                                             />
                                         </div>
-                                        <p class="mb-2 mt-2 flex justify-center text-l tracking-tight text-gray-200 dark:text-white">{Number(rate).toFixed(2)} % of your monthly income</p>
+                                        <p class="mb-2 mt-2 flex justify-center text-l tracking-tight text-gray-900 dark:text-white">{Number(rate).toFixed(2)} % of your monthly income</p>
                                     </div>
                                 </div>
                                 <div class="flex mb-8 justify-center">
