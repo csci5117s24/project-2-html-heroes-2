@@ -22,7 +22,9 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 **Describe the most challenging features you implemented
 (one sentence per bullet, maximum 4 bullets):**
 
-* ...
+* Integrating AI with receipt scanning
+* Integrating data with amCharts
+* Implementing mobile interface considerations
 
 Which (if any) device integration(s) does your app support?
 
