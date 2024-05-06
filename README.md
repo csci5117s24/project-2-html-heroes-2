@@ -6,7 +6,7 @@ CSCI 5117, Spring 2024, [assignment description](https://canvas.umn.edu/courses/
 
 * Team Name: Html Heros
 * App Name: Budget  Tracker
-* App Link: <https://TODO.com/>
+* App Link: <https://nice-ocean-02cf72b0f.5.azurestaticapps.net>
 
 ### Students
 
@@ -102,5 +102,7 @@ Please do not document required libraries (e.g., React, Azure serverless functio
 **If there's anything else you would like to disclose about how your project
 relied on external code, expertise, or anything else, please disclose that
 here:**
+
+* Tailwind CSS
 
 ...
