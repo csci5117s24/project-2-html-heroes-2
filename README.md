@@ -58,31 +58,37 @@ Which (if any) progressive web app feature(s) does your app support?
 
 
 ![Screenshot 2024-05-06 004708](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/227e901e-4565-4f57-916b-d060bb82ec7c)
-<figcaption>Empty Dashboard</figcaption>
+*Empty Dashboard*
 
 ![Screenshot 2024-05-06 004752](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/15f60f21-be1f-4ef1-a2f4-11c71c8d4084)
-<figcaption>Set up a budget based on monthly income and expected savings</figcaption>
+*Set up a budget based on monthly income and expected savings*
 
 ![Screenshot 2024-05-06 021528](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/a905d4d2-5933-429b-9fa4-66ca5103f943)
-<figcaption>Create and delete categories for sorting transactions</figcaption>
+*Create and delete categories for sorting transactions*
 
 ![Screenshot 2024-05-06 021953](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/9adc5d4a-e8fc-4269-9590-33fbcc413a88)
-<figcaption>Create and customize transaction details</figcaption>
+*Create and customize transaction details*
 
 ![Screenshot 2024-05-06 021844](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/ae02c253-4d85-4356-9abb-77eb0ab689d8)
+*See a list of all transactions, their totals, and sort them by category*
 
 ![Screenshot 2024-05-06 022405](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/e6de4ced-5458-48d9-89eb-76fc539feeb4)
+*Scan Receipts to capture transaction details*
 
 ![Screenshot 2024-05-06 022020](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/a92ebd06-392e-4f73-8de9-dd67f01f04a3)
+*Edit transaction details after adding or scanning them*
 
 ![Screenshot 2024-05-06 022150](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/0355e12e-81e6-440d-876c-99e494f8f1c3)
+*See advanced data summary on monthly or yearly transactions*
 
 ![Screenshot 2024-05-06 023012](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/b7b36210-ccda-4597-8185-3b33370bf378)
+*A fully lived-in dashboard, showing your most recent transactions, budget progress, and at a glance summaries!*
 
 ![screenshot_2024-05-05_at_10 04 27___pm_720](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/b329cffb-8f2e-441f-a4ae-83347c270d2e)
+*Download the Web App to Desktop*
 
 ![Screenshot 2024-05-06 023638](https://github.com/csci5117s24/project-2-html-heroes-2/assets/123435208/92f0e711-caa1-40d9-a6fc-5e9d4a820f7b)
-
+*Web App in it's own personalized window*
 ## External Dependencies
 
 **Document integrations with 3rd Party code or services here.
