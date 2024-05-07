@@ -97,7 +97,7 @@ Which (if any) progressive web app feature(s) does your app support?
 Please do not document required libraries (e.g., React, Azure serverless functions, Azure nosql).**
 
 * Library or service name: description of use
-* ...
+* [Azure AI Document Intelligence](https://azure.microsoft.com/en-us/products/ai-services/ai-document-intelligence): used to scan receipt for information.
 
 **If there's anything else you would like to disclose about how your project
 relied on external code, expertise, or anything else, please disclose that
